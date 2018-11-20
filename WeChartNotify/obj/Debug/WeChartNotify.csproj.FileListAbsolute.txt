@@ -69,3 +69,4 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNoti
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.exe
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.pdb
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormHelp.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.IBTWS.resources

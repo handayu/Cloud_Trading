@@ -66,6 +66,12 @@
     <Compile Include="FormHelp.Designer.cs">
       <DependentUpon>FormHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="IBTWS.AutoSetterControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="IBTWS.AutoSetterControl.Designer.cs">
+      <DependentUpon>IBTWS.AutoSetterControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MCData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +80,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHelp.resx">
       <DependentUpon>FormHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IBTWS.AutoSetterControl.resx">
+      <DependentUpon>IBTWS.AutoSetterControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

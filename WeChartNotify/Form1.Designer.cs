@@ -78,6 +78,7 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox_Process = new System.Windows.Forms.TextBox();
+            this.ibtws1 = new WeChartNotify.IBTWS();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -429,7 +430,7 @@
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(763, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1150, 25);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -454,7 +455,7 @@
             this.textBox_Morning.Name = "textBox_Morning";
             this.textBox_Morning.Size = new System.Drawing.Size(116, 21);
             this.textBox_Morning.TabIndex = 10;
-            this.textBox_Morning.Text = "08:00:00";
+            this.textBox_Morning.Text = "8:00:00";
             // 
             // label11
             // 
@@ -463,7 +464,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(77, 12);
             this.label11.TabIndex = 11;
-            this.label11.Text = "TestContent:";
+            this.label11.Text = "NotifyTime1:";
             // 
             // textBox_Noon
             // 
@@ -480,7 +481,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(77, 12);
             this.label12.TabIndex = 13;
-            this.label12.Text = "TestContent:";
+            this.label12.Text = "NotifyTime2:";
             // 
             // textBox_Eveing
             // 
@@ -497,7 +498,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 12);
             this.label13.TabIndex = 15;
-            this.label13.Text = "TestContent:";
+            this.label13.Text = "NotifyTime3:";
             // 
             // groupBox7
             // 
@@ -533,11 +534,19 @@
             this.textBox_Process.TabIndex = 16;
             this.textBox_Process.Text = "MultiCharts64";
             // 
+            // ibtws1
+            // 
+            this.ibtws1.Location = new System.Drawing.Point(741, 45);
+            this.ibtws1.Name = "ibtws1";
+            this.ibtws1.Size = new System.Drawing.Size(397, 482);
+            this.ibtws1.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 532);
+            this.ClientSize = new System.Drawing.Size(1150, 528);
+            this.Controls.Add(this.ibtws1);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
@@ -627,6 +636,7 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox_Process;
+        private IBTWS ibtws1;
     }
 }
 
