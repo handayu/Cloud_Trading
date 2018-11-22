@@ -216,6 +216,50 @@ namespace WeChartNotify
             return findResult;
         }
 
+        public void GiveToOtherToAction()
+        {
+            if (CheckProcessIsOk())
+            {
+                //1.输入内容;
+                SendMessageInfo("...");
+                SendEnterOperater();
+
+                SendMessageInfo("hello...mc process is going ok");
+                //2.点击发送;
+                SendEnterOperater();
+
+                //3.完成截图;
+                SendShotScreenOperater();
+
+                //4.点击发送;
+                SendEnterOperater();
+
+                //5.完成以上,发语音提醒到app-QQ;
+                SendEnterVoiceOperater();
+
+            }
+            else
+            {
+
+                //1.输入内容;
+                SendMessageInfo("mc process is crash,attention");
+
+                //2.点击发送;
+                SendEnterOperater();
+
+                //3.完成截图;
+                SendShotScreenOperater();
+
+                //4.点击发送;
+                SendEnterOperater();
+
+                //5.完成以上,发语音提醒到app-QQ;
+                SendEnterVoiceOperater();
+
+            }
+        }
+
+
         private void SendMcStatus()
         {
             string dateTime = DateTime.Now.ToString("T");
@@ -634,13 +678,19 @@ namespace WeChartNotify
         private void ToolStripMenuItem_HoldScreenData_Click(object sender, EventArgs e)
         {
             FormScreenDataHolder holder = new FormScreenDataHolder();
-            holder.ShowDialog();
+            holder.Show();
         }
 
         private void ToolStripMenuItem_ScreenSeen_Click(object sender, EventArgs e)
         {
             FormShootPictureHoldString holder = new FormShootPictureHoldString();
-            holder.ShowDialog();
+            holder.Show();
+        }
+
+        private void ToolStripMenuItem_XiangSuToStr_Click(object sender, EventArgs e)
+        {
+            FormAquaScreenHoldString holder = new FormAquaScreenHoldString(this);
+            holder.Show();
         }
     }
 }

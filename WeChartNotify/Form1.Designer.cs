@@ -80,8 +80,9 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox_Process = new System.Windows.Forms.TextBox();
-            this.ibtws1 = new WeChartNotify.IBTWS();
             this.ToolStripMenuItem_ScreenSeen = new System.Windows.Forms.ToolStripMenuItem();
+            this.ibtws1 = new WeChartNotify.IBTWS();
+            this.ToolStripMenuItem_XiangSuToStr = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -457,7 +458,8 @@
             // 
             this.辅助工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripMenuItem_HoldScreenData,
-            this.ToolStripMenuItem_ScreenSeen});
+            this.ToolStripMenuItem_ScreenSeen,
+            this.ToolStripMenuItem_XiangSuToStr});
             this.辅助工具ToolStripMenuItem.Name = "辅助工具ToolStripMenuItem";
             this.辅助工具ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.辅助工具ToolStripMenuItem.Text = "辅助工具";
@@ -554,6 +556,13 @@
             this.textBox_Process.TabIndex = 16;
             this.textBox_Process.Text = "MultiCharts64";
             // 
+            // ToolStripMenuItem_ScreenSeen
+            // 
+            this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
+            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
+            this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
+            // 
             // ibtws1
             // 
             this.ibtws1.Location = new System.Drawing.Point(741, 45);
@@ -561,12 +570,12 @@
             this.ibtws1.Size = new System.Drawing.Size(397, 482);
             this.ibtws1.TabIndex = 18;
             // 
-            // ToolStripMenuItem_ScreenSeen
+            // ToolStripMenuItem_XiangSuToStr
             // 
-            this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
-            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
-            this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
+            this.ToolStripMenuItem_XiangSuToStr.Name = "ToolStripMenuItem_XiangSuToStr";
+            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
+            this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
             // 
             // Form1
             // 
@@ -667,6 +676,7 @@
         private System.Windows.Forms.ToolStripMenuItem 辅助工具ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_HoldScreenData;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_ScreenSeen;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_XiangSuToStr;
     }
 }
 

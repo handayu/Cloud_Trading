@@ -74,7 +74,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "FormScreenDataHolder";
-            this.Text = "图形识别-取词交互";
+            this.Text = "取词交互";
             this.Load += new System.EventHandler(this.Form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
