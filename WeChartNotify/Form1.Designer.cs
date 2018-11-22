@@ -69,6 +69,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
+            this.辅助工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_HoldScreenData = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox_Morning = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_Noon = new System.Windows.Forms.TextBox();
@@ -79,8 +81,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.textBox_Process = new System.Windows.Forms.TextBox();
             this.ibtws1 = new WeChartNotify.IBTWS();
-            this.辅助工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ToolStripMenuItem_HoldScreenData = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_ScreenSeen = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -448,9 +449,25 @@
             // ToolStripMenuItem_Help
             // 
             this.ToolStripMenuItem_Help.Name = "ToolStripMenuItem_Help";
-            this.ToolStripMenuItem_Help.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_Help.Size = new System.Drawing.Size(100, 22);
             this.ToolStripMenuItem_Help.Text = "说明";
             this.ToolStripMenuItem_Help.Click += new System.EventHandler(this.ToolStripMenuItem_Help_Click);
+            // 
+            // 辅助工具ToolStripMenuItem
+            // 
+            this.辅助工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_HoldScreenData,
+            this.ToolStripMenuItem_ScreenSeen});
+            this.辅助工具ToolStripMenuItem.Name = "辅助工具ToolStripMenuItem";
+            this.辅助工具ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
+            this.辅助工具ToolStripMenuItem.Text = "辅助工具";
+            // 
+            // ToolStripMenuItem_HoldScreenData
+            // 
+            this.ToolStripMenuItem_HoldScreenData.Name = "ToolStripMenuItem_HoldScreenData";
+            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_HoldScreenData.Text = "取词交互-取词";
+            this.ToolStripMenuItem_HoldScreenData.Click += new System.EventHandler(this.ToolStripMenuItem_HoldScreenData_Click);
             // 
             // textBox_Morning
             // 
@@ -544,20 +561,12 @@
             this.ibtws1.Size = new System.Drawing.Size(397, 482);
             this.ibtws1.TabIndex = 18;
             // 
-            // 辅助工具ToolStripMenuItem
+            // ToolStripMenuItem_ScreenSeen
             // 
-            this.辅助工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ToolStripMenuItem_HoldScreenData});
-            this.辅助工具ToolStripMenuItem.Name = "辅助工具ToolStripMenuItem";
-            this.辅助工具ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.辅助工具ToolStripMenuItem.Text = "辅助工具";
-            // 
-            // ToolStripMenuItem_HoldScreenData
-            // 
-            this.ToolStripMenuItem_HoldScreenData.Name = "ToolStripMenuItem_HoldScreenData";
-            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItem_HoldScreenData.Text = "图形识别-取词";
-            this.ToolStripMenuItem_HoldScreenData.Click += new System.EventHandler(this.ToolStripMenuItem_HoldScreenData_Click);
+            this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
+            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
+            this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
             // 
             // Form1
             // 
@@ -657,6 +666,7 @@
         private IBTWS ibtws1;
         private System.Windows.Forms.ToolStripMenuItem 辅助工具ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_HoldScreenData;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_ScreenSeen;
     }
 }
 

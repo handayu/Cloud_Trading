@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using XDICTGRB;
 
+//LINK：https://bbs.csdn.net/topics/370081360
+//LINK:https://www.cnblogs.com/jiangj/archive/2010/09/26/1836159.html
+//主要是想利用金山词霸的取词去取屏幕的词，但是并没有成功实现
 namespace WeChartNotify
 {
     public partial class FormScreenDataHolder : Form, IXDictGrabSink
@@ -38,24 +41,11 @@ namespace WeChartNotify
             //窗口永远置前
             SetWindowPos(this.Handle, -1, Screen.PrimaryScreen.Bounds.Width / 2, Screen.PrimaryScreen.Bounds.Height / 2, this.Width, this.Height, 0);
             gp = new GrabProxy();
-            gp.GrabInterval = 1;//指抓取时间间隔 
+            gp.GrabInterval = 1;//指抓取时间间\隔 
             gp.GrabMode = XDictGrabModeEnum.XDictGrabMouse;//设定取词的属性 
             gp.GrabFlag = XDictGrabFlagEnum.XDictGrabOnlyEnglish;//只取英文
             gp.GrabEnabled = true;//是否取词的属性 
             gp.AdviseGrab(this);
-
-            int width = 50;
-            int height = 50;
-            var bitmap = new Bitmap(width, height, PixelFormat.Canonical);
-
-            for (int y = 0; y < height; y++)
-                for (int x = 0; x < width; x++)
-                {
-                    int red = 0;
-                    int green = 0;
-                    int blue = 0;
-                    bitmap.SetPixel(x, y, Color.FromArgb(0, red, green, blue));
-                }
 
         }
 

@@ -60,6 +60,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAquaScreenHoldString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAquaScreenHoldString.Designer.cs">
+      <DependentUpon>FormAquaScreenHoldString.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormHelp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
     </Compile>
     <Compile Include="FormScreenDataHolder.Designer.cs">
       <DependentUpon>FormScreenDataHolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShootPictureHoldString.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShootPictureHoldString.Designer.cs">
+      <DependentUpon>FormShootPictureHoldString.cs</DependentUpon>
     </Compile>
     <Compile Include="IBTWS.AutoSetterControl.cs">
       <SubType>UserControl</SubType>
@@ -116,6 +128,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="WIA">
+      <Guid>{94A0E92D-43C0-494E-AC29-FD45948A5221}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="XDICTGRB">
       <Guid>{7E37C9AA-9EBF-4F4C-BB07-4BC3B026B715}</Guid>
       <VersionMajor>1</VersionMajor>
