@@ -70,3 +70,6 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNoti
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.pdb
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormHelp.resources
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.IBTWS.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\Interop.XDICTGRB.dll
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.csproj.ResolveComReference.cache
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormScreenDataHolder.resources

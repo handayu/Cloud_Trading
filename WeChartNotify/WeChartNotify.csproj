@@ -66,6 +66,12 @@
     <Compile Include="FormHelp.Designer.cs">
       <DependentUpon>FormHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormScreenDataHolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormScreenDataHolder.Designer.cs">
+      <DependentUpon>FormScreenDataHolder.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBTWS.AutoSetterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHelp.resx">
       <DependentUpon>FormHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormScreenDataHolder.resx">
+      <DependentUpon>FormScreenDataHolder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IBTWS.AutoSetterControl.resx">
       <DependentUpon>IBTWS.AutoSetterControl.cs</DependentUpon>
@@ -105,6 +114,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="XDICTGRB">
+      <Guid>{7E37C9AA-9EBF-4F4C-BB07-4BC3B026B715}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

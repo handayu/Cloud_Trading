@@ -630,5 +630,11 @@ namespace WeChartNotify
             FormHelp h = new FormHelp();
             h.Show();
         }
+
+        private void ToolStripMenuItem_HoldScreenData_Click(object sender, EventArgs e)
+        {
+            FormScreenDataHolder holder = new FormScreenDataHolder();
+            holder.Show();
+        }
     }
 }
