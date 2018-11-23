@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -34,6 +35,12 @@ namespace WeChartNotify
             this.timer1.Interval = 10;//timer控件的执行频率
                                       //mouse_event((int)(MouseEventFlags.LeftUp | MouseEventFlags.Absolute), 607, 385, 0, IntPtr.Zero);
             this.textBox_content.Text = "test content";
+
+            this.radioButton_Start.Checked = false;
+            this.radioButton_Stop.Checked = true;
+
+            this.textBox_PATH.Text =  ConfigurationManager.AppSettings["path"];
+
         }
 
         public enum MouseEventFlags
@@ -691,6 +698,37 @@ namespace WeChartNotify
         {
             FormAquaScreenHoldString holder = new FormAquaScreenHoldString(this);
             holder.Show();
+        }
+
+        /// <summary>
+        /// 开始和停止循环查找txt的内容
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Start_ClockCheckChanged(object sender, EventArgs e)
+        {
+            if(this.radioButton_Start.Checked)
+            {
+                if (this.textBox_PATH.Text == "")
+                {
+                    MessageBox.Show("请输入要获取的文本的全路径！");
+                    this.radioButton_Stop.Checked = true;
+                    return;
+                }
+                else
+                {
+                    //启动定时器，不断的获取该路径的txt的最后一条信息比较并根据开关是否发送
+                    this.timer2.Enabled = true;
+                    this.timer2.Start();
+                    this.timer2.Interval = 10;//timer2控件的执行频率
+                }
+            }
+            else
+            {
+                //停止搜索
+                this.timer2.Enabled = false;
+                this.timer2.Stop();
+             }
         }
     }
 }

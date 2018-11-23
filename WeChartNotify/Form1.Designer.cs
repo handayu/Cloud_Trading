@@ -71,6 +71,8 @@
             this.ToolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.辅助工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_HoldScreenData = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_ScreenSeen = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_XiangSuToStr = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox_Morning = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_Noon = new System.Windows.Forms.TextBox();
@@ -80,9 +82,9 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox_Process = new System.Windows.Forms.TextBox();
-            this.ToolStripMenuItem_ScreenSeen = new System.Windows.Forms.ToolStripMenuItem();
             this.ibtws1 = new WeChartNotify.IBTWS();
-            this.ToolStripMenuItem_XiangSuToStr = new System.Windows.Forms.ToolStripMenuItem();
+            this.radioButton_Start = new System.Windows.Forms.RadioButton();
+            this.radioButton_Stop = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -280,7 +282,8 @@
             // 
             // EA_TEXT_SINGLE_INFO
             // 
-            this.EA_TEXT_SINGLE_INFO.Controls.Add(this.button_StartClockGet);
+            this.EA_TEXT_SINGLE_INFO.Controls.Add(this.radioButton_Stop);
+            this.EA_TEXT_SINGLE_INFO.Controls.Add(this.radioButton_Start);
             this.EA_TEXT_SINGLE_INFO.Controls.Add(this.label6);
             this.EA_TEXT_SINGLE_INFO.Controls.Add(this.textBox_PATH);
             this.EA_TEXT_SINGLE_INFO.Controls.Add(this.richTextBox_TEXTSINGLEINFO);
@@ -293,7 +296,7 @@
             // 
             // button_StartClockGet
             // 
-            this.button_StartClockGet.Location = new System.Drawing.Point(253, 23);
+            this.button_StartClockGet.Location = new System.Drawing.Point(55, 68);
             this.button_StartClockGet.Name = "button_StartClockGet";
             this.button_StartClockGet.Size = new System.Drawing.Size(103, 23);
             this.button_StartClockGet.TabIndex = 13;
@@ -410,6 +413,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button_StartClockGet);
             this.groupBox6.Controls.Add(this.button_ShotScreen);
             this.groupBox6.Location = new System.Drawing.Point(385, 264);
             this.groupBox6.Name = "groupBox6";
@@ -420,7 +424,7 @@
             // 
             // button_ShotScreen
             // 
-            this.button_ShotScreen.Location = new System.Drawing.Point(28, 38);
+            this.button_ShotScreen.Location = new System.Drawing.Point(55, 38);
             this.button_ShotScreen.Name = "button_ShotScreen";
             this.button_ShotScreen.Size = new System.Drawing.Size(276, 23);
             this.button_ShotScreen.TabIndex = 0;
@@ -467,9 +471,23 @@
             // ToolStripMenuItem_HoldScreenData
             // 
             this.ToolStripMenuItem_HoldScreenData.Name = "ToolStripMenuItem_HoldScreenData";
-            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuItem_HoldScreenData.Text = "取词交互-取词";
             this.ToolStripMenuItem_HoldScreenData.Click += new System.EventHandler(this.ToolStripMenuItem_HoldScreenData_Click);
+            // 
+            // ToolStripMenuItem_ScreenSeen
+            // 
+            this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
+            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
+            this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
+            // 
+            // ToolStripMenuItem_XiangSuToStr
+            // 
+            this.ToolStripMenuItem_XiangSuToStr.Name = "ToolStripMenuItem_XiangSuToStr";
+            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
+            this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
             // 
             // textBox_Morning
             // 
@@ -556,13 +574,6 @@
             this.textBox_Process.TabIndex = 16;
             this.textBox_Process.Text = "MultiCharts64";
             // 
-            // ToolStripMenuItem_ScreenSeen
-            // 
-            this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
-            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
-            this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
-            // 
             // ibtws1
             // 
             this.ibtws1.Location = new System.Drawing.Point(741, 45);
@@ -570,12 +581,28 @@
             this.ibtws1.Size = new System.Drawing.Size(397, 482);
             this.ibtws1.TabIndex = 18;
             // 
-            // ToolStripMenuItem_XiangSuToStr
+            // radioButton_Start
             // 
-            this.ToolStripMenuItem_XiangSuToStr.Name = "ToolStripMenuItem_XiangSuToStr";
-            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(180, 22);
-            this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
-            this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
+            this.radioButton_Start.AutoSize = true;
+            this.radioButton_Start.Location = new System.Drawing.Point(257, 15);
+            this.radioButton_Start.Name = "radioButton_Start";
+            this.radioButton_Start.Size = new System.Drawing.Size(113, 16);
+            this.radioButton_Start.TabIndex = 13;
+            this.radioButton_Start.TabStop = true;
+            this.radioButton_Start.Text = "Start-ClockLoop";
+            this.radioButton_Start.UseVisualStyleBackColor = true;
+            this.radioButton_Start.CheckedChanged += new System.EventHandler(this.Start_ClockCheckChanged);
+            // 
+            // radioButton_Stop
+            // 
+            this.radioButton_Stop.AutoSize = true;
+            this.radioButton_Stop.Location = new System.Drawing.Point(257, 34);
+            this.radioButton_Stop.Name = "radioButton_Stop";
+            this.radioButton_Stop.Size = new System.Drawing.Size(113, 16);
+            this.radioButton_Stop.TabIndex = 14;
+            this.radioButton_Stop.TabStop = true;
+            this.radioButton_Stop.Text = "Stop--ClockLoop";
+            this.radioButton_Stop.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -677,6 +704,8 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_HoldScreenData;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_ScreenSeen;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_XiangSuToStr;
+        private System.Windows.Forms.RadioButton radioButton_Stop;
+        private System.Windows.Forms.RadioButton radioButton_Start;
     }
 }
 
