@@ -152,7 +152,7 @@ namespace WeChartNotify
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Hold Error:" + ex.Message);
+                //MessageBox.Show("Hold Error:" + ex.Message);
             }
 
         }
@@ -193,7 +193,7 @@ namespace WeChartNotify
             }
             catch(Exception ex)
             {
-                MessageBox.Show("SendMessage error:" + ex.Message);
+                //MessageBox.Show("SendMessage error:" + ex.Message);
             }
 
         }
