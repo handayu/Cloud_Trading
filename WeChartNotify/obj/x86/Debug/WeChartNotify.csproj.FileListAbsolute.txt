@@ -41,3 +41,4 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChart
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChartNotify.exe
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChartNotify.pdb
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChartNotify.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChartNotify.FormRealComputerInfo.resources

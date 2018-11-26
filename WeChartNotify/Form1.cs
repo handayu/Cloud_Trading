@@ -40,7 +40,7 @@ namespace WeChartNotify
             this.radioButton_Stop.Checked = true;
 
             this.textBox_PATH.Text =  ConfigurationManager.AppSettings["path"];
-
+            this.label_ClockNotifyInfo.Text = "文本监控停止中......";
         }
 
         public enum MouseEventFlags
@@ -228,11 +228,18 @@ namespace WeChartNotify
             if (CheckProcessIsOk())
             {
                 //1.输入内容;
-                SendMessageInfo("...");
+                SendMessageInfo("hello...");
                 SendEnterOperater();
 
-                SendMessageInfo("hello...mc process is going ok");
-                //2.点击发送;
+                SendMessageInfo("1.mc process is going ok");
+                SendEnterOperater();
+
+                //1.输入内容;
+                SendMessageInfo("2.memory-usage is " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString());
+                SendEnterOperater();
+
+                //1.输入内容;
+                SendMessageInfo("3.cpu-usgae is " + ComputerInfomation.getCPUUsage().ToString());
                 SendEnterOperater();
 
                 //3.完成截图;
@@ -247,11 +254,19 @@ namespace WeChartNotify
             }
             else
             {
+                //1.输入内容;
+                SendMessageInfo("hello...");
+                SendEnterOperater();
+
+                SendMessageInfo("1.mc process is crash,attention");
+                SendEnterOperater();
 
                 //1.输入内容;
-                SendMessageInfo("mc process is crash,attention");
+                SendMessageInfo("2.memory-usage is " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString());
+                SendEnterOperater();
 
-                //2.点击发送;
+                //1.输入内容;
+                SendMessageInfo("3.cpu-usgae is " + ComputerInfomation.getCPUUsage().ToString());
                 SendEnterOperater();
 
                 //3.完成截图;
@@ -269,55 +284,83 @@ namespace WeChartNotify
 
         private void SendMcStatus()
         {
-            string dateTime = DateTime.Now.ToString("T");
-
-            if (DateTime.Now.ToString("T").CompareTo(this.textBox_Morning.Text) == 0
-                || DateTime.Now.ToString("T").CompareTo(this.textBox_Noon.Text) == 0
-                || DateTime.Now.ToString("T").CompareTo(this.textBox_Eveing.Text) == 0)
+            try
             {
-                System.Threading.Thread.Sleep(1000);
-                if (CheckProcessIsOk())
+                string dateTime = DateTime.Now.ToString("T");
+
+                if (DateTime.Now.ToString("T").CompareTo(this.textBox_Morning.Text) == 0
+                    || DateTime.Now.ToString("T").CompareTo(this.textBox_Noon.Text) == 0
+                    || DateTime.Now.ToString("T").CompareTo(this.textBox_Eveing.Text) == 0)
                 {
-                    //1.输入内容;
-                    SendMessageInfo("mc process is going ok");
+                    System.Threading.Thread.Sleep(1000);
+                    if (CheckProcessIsOk())
+                    {
+                        string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
+                        string cpu = ComputerInfomation.getCPUUsage();
 
-                    //2.点击发送;
-                    SendEnterOperater();
+                        //1.输入内容;
+                        SendMessageInfo("1.mc process is going ok");
+                        SendEnterOperater();
 
-                    //3.完成截图;
-                    SendShotScreenOperater();
+                        //1.输入内容;
+                        SendMessageInfo("2.memory-usage is " + rm);
+                        SendEnterOperater();
 
-                    //4.点击发送;
-                    SendEnterOperater();
+                        //1.输入内容;
+                        SendMessageInfo("3.cpu-usgae is " + cpu);
+                        SendEnterOperater();
 
-                    //5.完成以上,发语音提醒到app-QQ;
-                    SendEnterVoiceOperater();
+                        //3.完成截图;
+                        SendShotScreenOperater();
 
-                }
-                else
-                {
+                        //4.点击发送;
+                        SendEnterOperater();
 
-                    //1.输入内容;
-                    SendMessageInfo("mc process is crash,attention");
+                        //5.完成以上,发语音提醒到app-QQ;
+                        SendEnterVoiceOperater();
 
-                    //2.点击发送;
-                    SendEnterOperater();
+                    }
+                    else
+                    {
 
-                    //3.完成截图;
-                    SendShotScreenOperater();
+                        string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
+                        string cpu = ComputerInfomation.getCPUUsage();
 
-                    //4.点击发送;
-                    SendEnterOperater();
+                        //1.输入内容;
+                        SendMessageInfo("1.mc process is going ok");
+                        SendEnterOperater();
 
-                    //5.完成以上,发语音提醒到app-QQ;
-                    SendEnterVoiceOperater();
+                        //1.输入内容;
+                        SendMessageInfo("2.memory-usage is " + rm);
+                        SendEnterOperater();
 
+                        //1.输入内容;
+                        SendMessageInfo("3.cpu-usgae is " + cpu);
+                        SendEnterOperater();
+
+                        //3.完成截图;
+                        SendShotScreenOperater();
+
+                        //4.点击发送;
+                        SendEnterOperater();
+
+                        //5.完成以上,发语音提醒到app-QQ;
+                        SendEnterVoiceOperater();
+
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+           
         }
 
         private void Time2_Click(object sender, EventArgs e)
         {
+            this.timer2.Stop();
+
             //时间警报器
             SendMcStatus();
 
@@ -349,6 +392,8 @@ namespace WeChartNotify
                 SendEnterVoiceOperater();
 
             }
+
+            this.timer2.Start();
         }
 
         private void SendMessageInfo(string content)
@@ -537,6 +582,21 @@ namespace WeChartNotify
 
         }
 
+        public void ClearTxt(string path)
+        {
+            try
+            {
+                //设置文件共享方式为读写，FileShare.ReadWrite，这样的话，就可以打开了
+                FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write);
+                fs.SetLength(0);             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("清空文本失败:" + ex.Message);
+            }
+
+        }
+
         private void button_TestVoiceEnter_Click(object sender, EventArgs e)
         {
             int x = int.MinValue;
@@ -713,14 +773,26 @@ namespace WeChartNotify
                 {
                     MessageBox.Show("请输入要获取的文本的全路径！");
                     this.radioButton_Stop.Checked = true;
+                    this.label_ClockNotifyInfo.Text = "文本路径为空,无法打开监控,重新输入再次开启..";
                     return;
                 }
                 else
                 {
+                    //重新打开的时候，先把m_lastInfo重新置位“”，并且清空我们跟踪的文本，免得刚启动因为我们各回测往txt又写入了
+                    //新的文本，然后立即比较就报警，所以先重置，重新监控新的文本更新
+                    m_lastTxtSingleInfo = "";
+                    //
+                    ClearTxt(this.textBox_PATH.Text);
+                    //
+                    this.richTextBox_TEXTSINGLEINFO.Clear();
+
                     //启动定时器，不断的获取该路径的txt的最后一条信息比较并根据开关是否发送
                     this.timer2.Enabled = true;
                     this.timer2.Start();
                     this.timer2.Interval = 10;//timer2控件的执行频率
+
+                    this.label_ClockNotifyInfo.Text = "重置起始状态,清空文本,启动监控.....";
+
                 }
             }
             else
@@ -728,7 +800,26 @@ namespace WeChartNotify
                 //停止搜索
                 this.timer2.Enabled = false;
                 this.timer2.Stop();
-             }
+
+                this.label_ClockNotifyInfo.Text = "停止文本信号监控......";
+
+            }
+        }
+
+        private void ibtws1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// 计算机器实时状态
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ToolStripMenuItem_realInfo_Click(object sender, EventArgs e)
+        {
+            FormRealComputerInfo holder = new FormRealComputerInfo();
+            holder.Show();
         }
     }
 }

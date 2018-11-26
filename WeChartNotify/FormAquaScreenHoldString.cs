@@ -14,12 +14,14 @@ namespace WeChartNotify
 {
     public partial class FormAquaScreenHoldString : Form
     {
+        private ITextCaptureX obj = null;
         private bool m_IsAutoParam = false;
         private Form m_otherForm = null;
         public FormAquaScreenHoldString(Form f)
         {
             InitializeComponent();
             m_otherForm = f;
+            obj = new TextCaptureX();
         }
 
         //获取窗口标题
@@ -130,9 +132,17 @@ namespace WeChartNotify
 
         private string GetString()
         {
-            ITextCaptureX obj = new TextCaptureX();
-            string result = obj.GetTextFromRect(handle.ToInt32(), x, y, width, height);
-            return result;
+            if(obj != null)
+            {
+                string result = obj.GetTextFromRect(handle.ToInt32(), x, y, width, height);
+                return result;
+            }
+            else
+            {
+                obj = new TextCaptureX();
+                string result = obj.GetTextFromRect(handle.ToInt32(), x, y, width, height);
+                return result;
+            }
         }
 
         private void button_AutoParam_Click(object sender, EventArgs e)
@@ -146,13 +156,25 @@ namespace WeChartNotify
             {
                 button_Clear_Click(null, null);
 
-                ITextCaptureX obj = new TextCaptureX();
-                string result = obj.GetTextFromRect(handle.ToInt32(), x, y, width, height);
-                this.richTextBox_Result.AppendText(result);
+                if(obj != null)
+                {
+                    string result = obj.GetTextFromRect(handle.ToInt32(), x, y, width, height);
+                    this.richTextBox_Result.AppendText(result);
+                }
+                else
+                {
+                    obj = new TextCaptureX();
+                    string result = obj.GetTextFromRect(handle.ToInt32(), x, y, width, height);
+                    this.richTextBox_Result.AppendText(result);
+                }
             }
             catch(Exception ex)
             {
                 //MessageBox.Show("Hold Error:" + ex.Message);
+            }
+            finally
+            {
+                obj = null;
             }
 
         }
@@ -177,6 +199,8 @@ namespace WeChartNotify
 
         private void SendMessage_TimeEvent(object sender, EventArgs e)
         {
+            this.timer2.Stop();
+
             try
             {
                 if (this.textBox_X.Text != "" && this.textBox_Y.Text != ""
@@ -196,6 +220,7 @@ namespace WeChartNotify
                 //MessageBox.Show("SendMessage error:" + ex.Message);
             }
 
+            this.timer2.Start();
         }
     }
 }

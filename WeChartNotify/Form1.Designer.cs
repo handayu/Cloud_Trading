@@ -51,7 +51,8 @@
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
             this.richTextBox_TEXTSINGLEINFO = new System.Windows.Forms.RichTextBox();
             this.EA_TEXT_SINGLE_INFO = new System.Windows.Forms.GroupBox();
-            this.button_StartClockGet = new System.Windows.Forms.Button();
+            this.radioButton_Stop = new System.Windows.Forms.RadioButton();
+            this.radioButton_Start = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_PATH = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -73,6 +74,8 @@
             this.ToolStripMenuItem_HoldScreenData = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_ScreenSeen = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_XiangSuToStr = new System.Windows.Forms.ToolStripMenuItem();
+            this.任务管理器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_realInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox_Morning = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_Noon = new System.Windows.Forms.TextBox();
@@ -80,11 +83,12 @@
             this.textBox_Eveing = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox_Process = new System.Windows.Forms.TextBox();
             this.ibtws1 = new WeChartNotify.IBTWS();
-            this.radioButton_Start = new System.Windows.Forms.RadioButton();
-            this.radioButton_Stop = new System.Windows.Forms.RadioButton();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label_ClockNotifyInfo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -110,7 +114,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 21);
+            this.label1.Location = new System.Drawing.Point(382, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 1;
@@ -119,7 +123,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 21);
+            this.label2.Location = new System.Drawing.Point(557, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 12);
             this.label2.TabIndex = 2;
@@ -191,7 +195,7 @@
             // 
             // textBox_X
             // 
-            this.textBox_X.Location = new System.Drawing.Point(108, 18);
+            this.textBox_X.Location = new System.Drawing.Point(477, 18);
             this.textBox_X.Name = "textBox_X";
             this.textBox_X.ReadOnly = true;
             this.textBox_X.Size = new System.Drawing.Size(64, 21);
@@ -199,7 +203,7 @@
             // 
             // textBox_Y
             // 
-            this.textBox_Y.Location = new System.Drawing.Point(283, 18);
+            this.textBox_Y.Location = new System.Drawing.Point(652, 18);
             this.textBox_Y.Name = "textBox_Y";
             this.textBox_Y.ReadOnly = true;
             this.textBox_Y.Size = new System.Drawing.Size(64, 21);
@@ -274,14 +278,16 @@
             // 
             // richTextBox_TEXTSINGLEINFO
             // 
-            this.richTextBox_TEXTSINGLEINFO.Location = new System.Drawing.Point(6, 59);
+            this.richTextBox_TEXTSINGLEINFO.Location = new System.Drawing.Point(6, 82);
             this.richTextBox_TEXTSINGLEINFO.Name = "richTextBox_TEXTSINGLEINFO";
-            this.richTextBox_TEXTSINGLEINFO.Size = new System.Drawing.Size(350, 176);
+            this.richTextBox_TEXTSINGLEINFO.Size = new System.Drawing.Size(350, 232);
             this.richTextBox_TEXTSINGLEINFO.TabIndex = 10;
             this.richTextBox_TEXTSINGLEINFO.Text = "";
             // 
             // EA_TEXT_SINGLE_INFO
             // 
+            this.EA_TEXT_SINGLE_INFO.Controls.Add(this.label_ClockNotifyInfo);
+            this.EA_TEXT_SINGLE_INFO.Controls.Add(this.label16);
             this.EA_TEXT_SINGLE_INFO.Controls.Add(this.radioButton_Stop);
             this.EA_TEXT_SINGLE_INFO.Controls.Add(this.radioButton_Start);
             this.EA_TEXT_SINGLE_INFO.Controls.Add(this.label6);
@@ -289,20 +295,33 @@
             this.EA_TEXT_SINGLE_INFO.Controls.Add(this.richTextBox_TEXTSINGLEINFO);
             this.EA_TEXT_SINGLE_INFO.Location = new System.Drawing.Point(2, 273);
             this.EA_TEXT_SINGLE_INFO.Name = "EA_TEXT_SINGLE_INFO";
-            this.EA_TEXT_SINGLE_INFO.Size = new System.Drawing.Size(377, 247);
+            this.EA_TEXT_SINGLE_INFO.Size = new System.Drawing.Size(377, 320);
             this.EA_TEXT_SINGLE_INFO.TabIndex = 11;
             this.EA_TEXT_SINGLE_INFO.TabStop = false;
             this.EA_TEXT_SINGLE_INFO.Text = "EA_TEXT_SINGLE_INFO";
             // 
-            // button_StartClockGet
+            // radioButton_Stop
             // 
-            this.button_StartClockGet.Location = new System.Drawing.Point(55, 68);
-            this.button_StartClockGet.Name = "button_StartClockGet";
-            this.button_StartClockGet.Size = new System.Drawing.Size(103, 23);
-            this.button_StartClockGet.TabIndex = 13;
-            this.button_StartClockGet.Text = "StartClockGet";
-            this.button_StartClockGet.UseVisualStyleBackColor = true;
-            this.button_StartClockGet.Click += new System.EventHandler(this.button_StartClockGet_Click);
+            this.radioButton_Stop.AutoSize = true;
+            this.radioButton_Stop.Location = new System.Drawing.Point(257, 34);
+            this.radioButton_Stop.Name = "radioButton_Stop";
+            this.radioButton_Stop.Size = new System.Drawing.Size(113, 16);
+            this.radioButton_Stop.TabIndex = 14;
+            this.radioButton_Stop.TabStop = true;
+            this.radioButton_Stop.Text = "Stop--ClockLoop";
+            this.radioButton_Stop.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_Start
+            // 
+            this.radioButton_Start.AutoSize = true;
+            this.radioButton_Start.Location = new System.Drawing.Point(257, 15);
+            this.radioButton_Start.Name = "radioButton_Start";
+            this.radioButton_Start.Size = new System.Drawing.Size(113, 16);
+            this.radioButton_Start.TabIndex = 13;
+            this.radioButton_Start.TabStop = true;
+            this.radioButton_Start.Text = "Start-ClockLoop";
+            this.radioButton_Start.UseVisualStyleBackColor = true;
+            this.radioButton_Start.CheckedChanged += new System.EventHandler(this.Start_ClockCheckChanged);
             // 
             // label6
             // 
@@ -413,7 +432,6 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button_StartClockGet);
             this.groupBox6.Controls.Add(this.button_ShotScreen);
             this.groupBox6.Location = new System.Drawing.Point(385, 264);
             this.groupBox6.Name = "groupBox6";
@@ -436,10 +454,11 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.帮助ToolStripMenuItem,
-            this.辅助工具ToolStripMenuItem});
+            this.辅助工具ToolStripMenuItem,
+            this.任务管理器ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1150, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1154, 25);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -488,6 +507,21 @@
             this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
             this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
+            // 
+            // 任务管理器ToolStripMenuItem
+            // 
+            this.任务管理器ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ToolStripMenuItem_realInfo});
+            this.任务管理器ToolStripMenuItem.Name = "任务管理器ToolStripMenuItem";
+            this.任务管理器ToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
+            this.任务管理器ToolStripMenuItem.Text = "任务管理器";
+            // 
+            // ToolStripMenuItem_realInfo
+            // 
+            this.ToolStripMenuItem_realInfo.Name = "ToolStripMenuItem_realInfo";
+            this.ToolStripMenuItem_realInfo.Size = new System.Drawing.Size(160, 22);
+            this.ToolStripMenuItem_realInfo.Text = "计算机实时状态";
+            this.ToolStripMenuItem_realInfo.Click += new System.EventHandler(this.ToolStripMenuItem_realInfo_Click);
             // 
             // textBox_Morning
             // 
@@ -542,6 +576,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label15);
             this.groupBox7.Controls.Add(this.label14);
             this.groupBox7.Controls.Add(this.textBox_Process);
             this.groupBox7.Controls.Add(this.label13);
@@ -552,10 +587,19 @@
             this.groupBox7.Controls.Add(this.textBox_Morning);
             this.groupBox7.Location = new System.Drawing.Point(385, 381);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(350, 146);
+            this.groupBox7.Size = new System.Drawing.Size(350, 212);
             this.groupBox7.TabIndex = 17;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "定时Send-MC-status";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(40, 139);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(221, 36);
+            this.label15.TabIndex = 18;
+            this.label15.Text = "PS:在Start-Clock监控文本的同时，\r\n达到上述固定时间查看MC进程是否在线，\r\n另外播报内存和CPU使用率给WeChart\r\n";
             // 
             // label14
             // 
@@ -578,37 +622,34 @@
             // 
             this.ibtws1.Location = new System.Drawing.Point(741, 45);
             this.ibtws1.Name = "ibtws1";
-            this.ibtws1.Size = new System.Drawing.Size(397, 482);
+            this.ibtws1.Size = new System.Drawing.Size(397, 548);
             this.ibtws1.TabIndex = 18;
+            this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
             // 
-            // radioButton_Start
+            // label16
             // 
-            this.radioButton_Start.AutoSize = true;
-            this.radioButton_Start.Location = new System.Drawing.Point(257, 15);
-            this.radioButton_Start.Name = "radioButton_Start";
-            this.radioButton_Start.Size = new System.Drawing.Size(113, 16);
-            this.radioButton_Start.TabIndex = 13;
-            this.radioButton_Start.TabStop = true;
-            this.radioButton_Start.Text = "Start-ClockLoop";
-            this.radioButton_Start.UseVisualStyleBackColor = true;
-            this.radioButton_Start.CheckedChanged += new System.EventHandler(this.Start_ClockCheckChanged);
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(13, 64);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(59, 12);
+            this.label16.TabIndex = 15;
+            this.label16.Text = "监控信息:";
             // 
-            // radioButton_Stop
+            // label_ClockNotifyInfo
             // 
-            this.radioButton_Stop.AutoSize = true;
-            this.radioButton_Stop.Location = new System.Drawing.Point(257, 34);
-            this.radioButton_Stop.Name = "radioButton_Stop";
-            this.radioButton_Stop.Size = new System.Drawing.Size(113, 16);
-            this.radioButton_Stop.TabIndex = 14;
-            this.radioButton_Stop.TabStop = true;
-            this.radioButton_Stop.Text = "Stop--ClockLoop";
-            this.radioButton_Stop.UseVisualStyleBackColor = true;
+            this.label_ClockNotifyInfo.AutoSize = true;
+            this.label_ClockNotifyInfo.Location = new System.Drawing.Point(79, 64);
+            this.label_ClockNotifyInfo.Name = "label_ClockNotifyInfo";
+            this.label_ClockNotifyInfo.Size = new System.Drawing.Size(59, 12);
+            this.label_ClockNotifyInfo.TabIndex = 16;
+            this.label_ClockNotifyInfo.Text = "---------";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 528);
+            this.ClientSize = new System.Drawing.Size(1154, 605);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ibtws1);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox6);
@@ -617,7 +658,6 @@
             this.Controls.Add(this.separatorControl1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox_X);
             this.Controls.Add(this.textBox_Y);
             this.Controls.Add(this.label2);
@@ -672,7 +712,6 @@
         private DevExpress.XtraEditors.SeparatorControl separatorControl1;
         private System.Windows.Forms.RichTextBox richTextBox_TEXTSINGLEINFO;
         private System.Windows.Forms.GroupBox EA_TEXT_SINGLE_INFO;
-        private System.Windows.Forms.Button button_StartClockGet;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox_PATH;
         private System.Windows.Forms.Timer timer2;
@@ -706,6 +745,11 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_XiangSuToStr;
         private System.Windows.Forms.RadioButton radioButton_Stop;
         private System.Windows.Forms.RadioButton radioButton_Start;
+        private System.Windows.Forms.ToolStripMenuItem 任务管理器ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_realInfo;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label_ClockNotifyInfo;
+        private System.Windows.Forms.Label label16;
     }
 }
 
