@@ -126,7 +126,15 @@ namespace WeChat.NET.Controls
         /// <param name="msg"></param>
         void _friendUser_MsgSent(WXMsg msg)
         {
-            ShowSendMsg(msg);
+            ShowSendMsg(msg);        
+        }
+        /// <summary>
+        /// 收到新消息
+        /// </summary>
+        /// <param name="msg"></param>
+        void _friendUser_MsgRecved(WXMsg msg)
+        {
+            ShowReceiveMsg(msg);
 
             if (msg.Msg.CompareTo("hi") == 0)
             {
@@ -164,16 +172,6 @@ namespace WeChat.NET.Controls
 
                 }
             }
-        }
-        /// <summary>
-        /// 收到新消息
-        /// </summary>
-        /// <param name="msg"></param>
-        void _friendUser_MsgRecved(WXMsg msg)
-        {
-            ShowReceiveMsg(msg);
-
-
         }
 
         /// <summary>

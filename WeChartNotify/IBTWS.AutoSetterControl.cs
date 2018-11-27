@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace WeChartNotify
 {
@@ -282,6 +283,43 @@ namespace WeChartNotify
         private void button1_Click(object sender, EventArgs e)
         {
             OpenPM();
+        }
+
+        private void Timer_CheckTWS(object sender, EventArgs e)
+        {
+            this.timer_CheckTWS.Stop();
+
+            if(CheckProcessIsOk())
+            {
+                this.pictureBox1.Image = Properties.Resources._2123123;
+                this.progressBar1.Value = 0;
+            }
+            else
+            {
+                this.pictureBox1.Image = Properties.Resources._13412341;
+                for(int i = 0;i<100;i++)
+                {
+                    this.progressBar1.Value = i;
+                }
+            }
+
+            this.timer_CheckTWS.Start();
+        }
+
+        private bool CheckProcessIsOk()
+        {
+            Process[] ps = Process.GetProcesses();
+            bool findResult = false;
+            foreach (Process p in ps)
+            {
+                if (p.ProcessName.CompareTo(this.textBox_ProcessName.Text) == 0)
+                {
+                    findResult = true;
+                    //MessageBox.Show("processName:" + p.ProcessName + " textBox: " + this.textBox_ProcessName.Text);
+                    break;
+                }
+            }
+            return findResult;
         }
     }
 }

@@ -86,9 +86,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox_Process = new System.Windows.Forms.TextBox();
-            this.ibtws1 = new WeChartNotify.IBTWS();
             this.label16 = new System.Windows.Forms.Label();
             this.label_ClockNotifyInfo = new System.Windows.Forms.Label();
+            this.ibtws1 = new WeChartNotify.IBTWS();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -618,14 +618,6 @@
             this.textBox_Process.TabIndex = 16;
             this.textBox_Process.Text = "MultiCharts64";
             // 
-            // ibtws1
-            // 
-            this.ibtws1.Location = new System.Drawing.Point(741, 45);
-            this.ibtws1.Name = "ibtws1";
-            this.ibtws1.Size = new System.Drawing.Size(397, 548);
-            this.ibtws1.TabIndex = 18;
-            this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -643,6 +635,14 @@
             this.label_ClockNotifyInfo.Size = new System.Drawing.Size(59, 12);
             this.label_ClockNotifyInfo.TabIndex = 16;
             this.label_ClockNotifyInfo.Text = "---------";
+            // 
+            // ibtws1
+            // 
+            this.ibtws1.Location = new System.Drawing.Point(741, 45);
+            this.ibtws1.Name = "ibtws1";
+            this.ibtws1.Size = new System.Drawing.Size(397, 548);
+            this.ibtws1.TabIndex = 18;
+            this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
             // 
             // Form1
             // 
@@ -738,7 +738,6 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox_Process;
-        private IBTWS ibtws1;
         private System.Windows.Forms.ToolStripMenuItem 辅助工具ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_HoldScreenData;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_ScreenSeen;
@@ -750,6 +749,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label_ClockNotifyInfo;
         private System.Windows.Forms.Label label16;
+        private IBTWS ibtws1;
     }
 }
 

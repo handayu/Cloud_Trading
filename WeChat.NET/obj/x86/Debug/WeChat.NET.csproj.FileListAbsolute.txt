@@ -36,7 +36,6 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\bin\Debug\WeChat.NET.exe
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\bin\Debug\WeChat.NET.pdb
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\bin\Debug\WebKitBrowser.dll
-C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.Controls.WChatBox.resources
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.Controls.WChatList.resources
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.Controls.WFriendsList.resources
@@ -49,3 +48,4 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.exe
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.pdb
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.csprojAssemblyReference.cache

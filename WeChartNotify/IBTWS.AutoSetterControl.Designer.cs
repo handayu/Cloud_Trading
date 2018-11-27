@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_IBY5 = new System.Windows.Forms.TextBox();
@@ -62,14 +66,22 @@
             this.label16 = new System.Windows.Forms.Label();
             this.textBox_IBX1 = new System.Windows.Forms.TextBox();
             this.button_YanShiJiaoyiIB = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timerPickerXY = new System.Windows.Forms.Timer(this.components);
             this.timerAutoModify = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.timer_CheckTWS = new System.Windows.Forms.Timer(this.components);
+            this.textBox_ProcessName = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.progressBar1);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label6);
@@ -103,13 +115,50 @@
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.textBox_IBX1);
             this.groupBox3.Controls.Add(this.button_YanShiJiaoyiIB);
+            this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(412, 451);
+            this.groupBox3.Size = new System.Drawing.Size(412, 574);
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "IB-TWS连续交易延迟引擎";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(32, 497);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(147, 23);
+            this.progressBar1.TabIndex = 45;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.Color.Tomato;
+            this.label8.Location = new System.Drawing.Point(30, 471);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(149, 12);
+            this.label8.TabIndex = 44;
+            this.label8.Text = "TWS-Relogin Reconnecting";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(30, 434);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(119, 12);
+            this.label9.TabIndex = 42;
+            this.label9.Text = "TWS-Running Status:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(28, 369);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(162, 23);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "Loop-Click TestPM";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -379,6 +428,31 @@
             this.button_YanShiJiaoyiIB.UseVisualStyleBackColor = true;
             this.button_YanShiJiaoyiIB.Click += new System.EventHandler(this.button_YanShiJiaoyiIB_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox_ProcessName);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Location = new System.Drawing.Point(18, 399);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(378, 169);
+            this.groupBox1.TabIndex = 46;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Multicharts-TWS 重连";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureBox1.ErrorImage = global::WeChartNotify.Properties.Resources._13412341;
+            this.pictureBox1.Image = global::WeChartNotify.Properties.Resources._2123123;
+            this.pictureBox1.InitialImage = global::WeChartNotify.Properties.Resources._13412341;
+            this.pictureBox1.Location = new System.Drawing.Point(233, 72);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(115, 83);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 43;
+            this.pictureBox1.TabStop = false;
+            // 
             // timerPickerXY
             // 
             this.timerPickerXY.Enabled = true;
@@ -391,15 +465,19 @@
             this.timerAutoModify.Interval = 10;
             this.timerAutoModify.Tick += new System.EventHandler(this.Timer_ModifyEvent);
             // 
-            // button1
+            // timer_CheckTWS
             // 
-            this.button1.Location = new System.Drawing.Point(28, 369);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 23);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "Loop-Click TestPM";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.timer_CheckTWS.Enabled = true;
+            this.timer_CheckTWS.Interval = 1000;
+            this.timer_CheckTWS.Tick += new System.EventHandler(this.Timer_CheckTWS);
+            // 
+            // textBox_ProcessName
+            // 
+            this.textBox_ProcessName.Location = new System.Drawing.Point(139, 32);
+            this.textBox_ProcessName.Name = "textBox_ProcessName";
+            this.textBox_ProcessName.Size = new System.Drawing.Size(175, 21);
+            this.textBox_ProcessName.TabIndex = 44;
+            this.textBox_ProcessName.Text = "tws";
             // 
             // IBTWS
             // 
@@ -407,9 +485,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.groupBox3);
             this.Name = "IBTWS";
-            this.Size = new System.Drawing.Size(412, 451);
+            this.Size = new System.Drawing.Size(412, 574);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,5 +533,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timerAutoModify;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer_CheckTWS;
+        private System.Windows.Forms.TextBox textBox_ProcessName;
     }
 }
