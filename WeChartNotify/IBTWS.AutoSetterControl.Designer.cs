@@ -67,11 +67,11 @@
             this.textBox_IBX1 = new System.Windows.Forms.TextBox();
             this.button_YanShiJiaoyiIB = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox_ProcessName = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timerPickerXY = new System.Windows.Forms.Timer(this.components);
             this.timerAutoModify = new System.Windows.Forms.Timer(this.components);
             this.timer_CheckTWS = new System.Windows.Forms.Timer(this.components);
-            this.textBox_ProcessName = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -439,6 +439,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Multicharts-TWS 重连";
             // 
+            // textBox_ProcessName
+            // 
+            this.textBox_ProcessName.Location = new System.Drawing.Point(139, 32);
+            this.textBox_ProcessName.Name = "textBox_ProcessName";
+            this.textBox_ProcessName.Size = new System.Drawing.Size(175, 21);
+            this.textBox_ProcessName.TabIndex = 44;
+            this.textBox_ProcessName.Text = "tws";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -461,7 +469,6 @@
             // 
             // timerAutoModify
             // 
-            this.timerAutoModify.Enabled = true;
             this.timerAutoModify.Interval = 10;
             this.timerAutoModify.Tick += new System.EventHandler(this.Timer_ModifyEvent);
             // 
@@ -470,14 +477,6 @@
             this.timer_CheckTWS.Enabled = true;
             this.timer_CheckTWS.Interval = 1000;
             this.timer_CheckTWS.Tick += new System.EventHandler(this.Timer_CheckTWS);
-            // 
-            // textBox_ProcessName
-            // 
-            this.textBox_ProcessName.Location = new System.Drawing.Point(139, 32);
-            this.textBox_ProcessName.Name = "textBox_ProcessName";
-            this.textBox_ProcessName.Size = new System.Drawing.Size(175, 21);
-            this.textBox_ProcessName.TabIndex = 44;
-            this.textBox_ProcessName.Text = "tws";
             // 
             // IBTWS
             // 

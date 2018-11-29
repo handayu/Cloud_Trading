@@ -137,6 +137,12 @@
     <Compile Include="FormHelp.Designer.cs">
       <DependentUpon>FormHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPixelCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPixelCheck.Designer.cs">
+      <DependentUpon>FormPixelCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRealComputerInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormHelp.resx">
       <DependentUpon>FormHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPixelCheck.resx">
+      <DependentUpon>FormPixelCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRealComputerInfo.resx">
       <DependentUpon>FormRealComputerInfo.cs</DependentUpon>

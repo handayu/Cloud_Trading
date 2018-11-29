@@ -132,6 +132,15 @@ namespace WeChartNotify
                 && Control.MousePosition.Y.ToString().CompareTo(m_nowY) == 0
                 && m_spreadTime >= 2000)
             {
+                //1.先去把窗口从最小化点开
+                if (this.textBox_maxX.Text == "" && this.textBox_MaxY.Text == "")
+                {
+                    this.textBox_maxX.Text = Control.MousePosition.X.ToString();
+                    this.textBox_MaxY.Text = Control.MousePosition.Y.ToString();
+                    m_spreadTime = 0;
+                    return;
+                }
+
                 //1.先去设置输入的焦点点击坐标 
                 if (this.textBox_setX.Text == "" && this.textBox_setY.Text == "")
                 {
@@ -158,6 +167,16 @@ namespace WeChartNotify
                     m_spreadTime = 0;
                     return;
                 }
+
+                //1.最后把窗口缩下去
+                if (this.textBox_MinX.Text == "" && this.textBox_MinY.Text == "")
+                {
+                    this.textBox_MinX.Text = Control.MousePosition.X.ToString();
+                    this.textBox_MinY.Text = Control.MousePosition.Y.ToString();
+                    m_spreadTime = 0;
+                    return;
+                }
+
 
             }
         }
@@ -227,6 +246,8 @@ namespace WeChartNotify
         {
             if (CheckProcessIsOk())
             {
+                MaxWeChatForm();
+
                 //1.输入内容;
                 SendMessageInfo("hello...");
                 SendEnterOperater();
@@ -251,9 +272,13 @@ namespace WeChartNotify
                 //5.完成以上,发语音提醒到app-QQ;
                 SendEnterVoiceOperater();
 
+                MinWeChatForm();
+
             }
             else
             {
+                MaxWeChatForm();
+
                 //1.输入内容;
                 SendMessageInfo("hello...");
                 SendEnterOperater();
@@ -278,6 +303,8 @@ namespace WeChartNotify
                 //5.完成以上,发语音提醒到app-QQ;
                 SendEnterVoiceOperater();
 
+                MinWeChatForm();
+
             }
         }
 
@@ -298,6 +325,8 @@ namespace WeChartNotify
                         string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
                         string cpu = ComputerInfomation.getCPUUsage();
 
+                        MaxWeChatForm();
+
                         //1.输入内容;
                         SendMessageInfo("1.mc process is going ok");
                         SendEnterOperater();
@@ -319,6 +348,7 @@ namespace WeChartNotify
                         //5.完成以上,发语音提醒到app-QQ;
                         SendEnterVoiceOperater();
 
+                        MinWeChatForm();
                     }
                     else
                     {
@@ -326,6 +356,8 @@ namespace WeChartNotify
                         string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
                         string cpu = ComputerInfomation.getCPUUsage();
 
+                        MaxWeChatForm();
+
                         //1.输入内容;
                         SendMessageInfo("1.mc process is going ok");
                         SendEnterOperater();
@@ -347,12 +379,13 @@ namespace WeChartNotify
                         //5.完成以上,发语音提醒到app-QQ;
                         SendEnterVoiceOperater();
 
+                        MinWeChatForm();
                     }
                 }
             }
             catch(Exception ex)
             {
-                throw new Exception(ex.Message);
+                 
             }
            
         }
@@ -375,6 +408,7 @@ namespace WeChartNotify
 
                 m_lastTxtSingleInfo = lastSingleInfo;
 
+                MaxWeChatForm();
 
                 //1.输入内容;
                 SendMessageInfo(m_lastTxtSingleInfo);
@@ -391,6 +425,7 @@ namespace WeChartNotify
                 //5.完成以上,发语音提醒到app-QQ;
                 SendEnterVoiceOperater();
 
+                MinWeChatForm();
             }
 
             this.timer2.Start();
@@ -658,6 +693,12 @@ namespace WeChartNotify
 
             this.textBox_VoiceX.Clear();
             this.textBox_VoiceY.Clear();
+
+            this.textBox_maxX.Clear();
+            this.textBox_MaxY.Clear();
+
+            this.textBox_MinX.Clear();
+            this.textBox_MinY.Clear();
         }
 
         private bool m_autoSetingXY = false;
@@ -819,6 +860,86 @@ namespace WeChartNotify
         private void ToolStripMenuItem_realInfo_Click(object sender, EventArgs e)
         {
             FormRealComputerInfo holder = new FormRealComputerInfo();
+            holder.Show();
+        }
+
+        private void button_TestMaxForm_Click(object sender, EventArgs e)
+        {
+            MaxWeChatForm();
+
+        }
+
+        private void button_TestMinForm_Click(object sender, EventArgs e)
+        {
+            MinWeChatForm();
+        }
+
+        private void MaxWeChatForm()
+        {
+            int x = int.MinValue;
+            int y = int.MinValue;
+
+            if (this.textBox_maxX.Text == "")
+            {
+                MessageBox.Show("请输入要测试点击按钮的X的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_maxX.Text, out x);
+            }
+
+            if (this.textBox_MaxY.Text == "")
+            {
+                MessageBox.Show("请输入要测试点击按钮的y的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_MaxY.Text, out y);
+            }
+
+            //用屏幕取点工具可以得到坐标
+            SetCursorPos(x, y);
+            //点击
+            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), x, y, 0, IntPtr.Zero);
+        }
+
+        private void MinWeChatForm()
+        {
+            int x = int.MinValue;
+            int y = int.MinValue;
+
+            if (this.textBox_MinX.Text == "")
+            {
+                MessageBox.Show("请输入要测试点击按钮的X的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_MinX.Text, out x);
+            }
+
+            if (this.textBox_MinY.Text == "")
+            {
+                MessageBox.Show("请输入要测试点击按钮的y的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_MinY.Text, out y);
+            }
+
+            //用屏幕取点工具可以得到坐标
+            SetCursorPos(x, y);
+            //点击
+            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), x, y, 0, IntPtr.Zero);
+
+        }
+
+        private void ToolStripMenuIteｍ_pirexHolder_Click(object sender, EventArgs e)
+        {
+            FormPixelCheck holder = new FormPixelCheck(this);
             holder.Show();
         }
     }
