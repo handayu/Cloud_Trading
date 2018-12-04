@@ -48,4 +48,3 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.csproj.CopyComplete
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.exe
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.pdb
-C:\Users\Administrator\Desktop\Cloud_Trading\WeChat.NET\obj\x86\Debug\WeChat.NET.csprojAssemblyReference.cache

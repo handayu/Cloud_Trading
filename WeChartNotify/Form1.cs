@@ -39,7 +39,7 @@ namespace WeChartNotify
             this.radioButton_Start.Checked = false;
             this.radioButton_Stop.Checked = true;
 
-            this.textBox_PATH.Text =  ConfigurationManager.AppSettings["path"];
+            this.textBox_PATH.Text = ConfigurationManager.AppSettings["path"];
             this.label_ClockNotifyInfo.Text = "文本监控停止中......";
         }
 
@@ -242,72 +242,188 @@ namespace WeChartNotify
             return findResult;
         }
 
+        /// <summary>
+        /// 给像素识别或者图形识别了hi调用使用的外部接口
+        /// </summary>
         public void GiveToOtherToAction()
         {
             if (CheckProcessIsOk())
             {
-                MaxWeChatForm();
+                ////MaxWeChatForm();
 
-                //1.输入内容;
-                SendMessageInfo("hello...");
-                SendEnterOperater();
+                ////1.输入内容;
+                //SendMessageInfo("hello...");
+                //SendEnterOperater();
 
-                SendMessageInfo("1.mc process is going ok");
-                SendEnterOperater();
+                //SendMessageInfo("1.mc process is going ok");
+                //SendEnterOperater();
 
-                //1.输入内容;
-                SendMessageInfo("2.memory-usage is " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString());
-                SendEnterOperater();
+                ////1.输入内容;
+                //SendMessageInfo("2.memory-usage is " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString());
+                //SendEnterOperater();
 
-                //1.输入内容;
-                SendMessageInfo("3.cpu-usgae is " + ComputerInfomation.getCPUUsage().ToString());
-                SendEnterOperater();
+                ////1.输入内容;
+                //SendMessageInfo("3.cpu-usgae is " + ComputerInfomation.getCPUUsage().ToString());
+                //SendEnterOperater();
+
+                ////3.完成截图;
+                //SendShotScreenOperater();
+
+                ////4.点击发送;
+                //SendEnterOperater();
+
+                ////5.完成以上,发语音提醒到app-QQ;
+                //SendEnterVoiceOperater();
+
+                ////MinWeChatForm();
+
+                string content = "服务器终端实时状态:" + "\n" +
+                        "1.Multicharts 进程运行良好..." + "\n" +
+                        "2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                        "3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n";
+
+                UseClipBoardWenziSend(content);
 
                 //3.完成截图;
                 SendShotScreenOperater();
 
                 //4.点击发送;
                 SendEnterOperater();
-
-                //5.完成以上,发语音提醒到app-QQ;
-                SendEnterVoiceOperater();
-
-                MinWeChatForm();
-
             }
             else
             {
-                MaxWeChatForm();
+                ////MaxWeChatForm();
 
-                //1.输入内容;
-                SendMessageInfo("hello...");
-                SendEnterOperater();
+                ////1.输入内容;
+                //SendMessageInfo("hello...");
+                //SendEnterOperater();
 
-                SendMessageInfo("1.mc process is crash,attention");
-                SendEnterOperater();
+                //SendMessageInfo("1.mc process is crash,attention");
+                //SendEnterOperater();
 
-                //1.输入内容;
-                SendMessageInfo("2.memory-usage is " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString());
-                SendEnterOperater();
+                ////1.输入内容;
+                //SendMessageInfo("2.memory-usage is " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString());
+                //SendEnterOperater();
 
-                //1.输入内容;
-                SendMessageInfo("3.cpu-usgae is " + ComputerInfomation.getCPUUsage().ToString());
-                SendEnterOperater();
+                ////1.输入内容;
+                //SendMessageInfo("3.cpu-usgae is " + ComputerInfomation.getCPUUsage().ToString());
+                //SendEnterOperater();
+
+                ////3.完成截图;
+                //SendShotScreenOperater();
+
+                ////4.点击发送;
+                //SendEnterOperater();
+
+                ////5.完成以上,发语音提醒到app-QQ;
+                //SendEnterVoiceOperater();
+
+                ////MinWeChatForm();
+                string content = "服务器终端实时状态:" + "\n" +
+                        "1.Multicharts 进程运行异常,请立即检查..." + "\n" +
+                        "2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                        "3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n";
+
+                UseClipBoardWenziSend(content);
 
                 //3.完成截图;
                 SendShotScreenOperater();
 
                 //4.点击发送;
                 SendEnterOperater();
-
-                //5.完成以上,发语音提醒到app-QQ;
-                SendEnterVoiceOperater();
-
-                MinWeChatForm();
-
             }
         }
 
+        private void UseClipBoardWenziSend(string content)
+        {
+            Clipboard.Clear();
+            Clipboard.SetDataObject(content);
+
+            //2--------------------------------------------------
+            int x = int.MinValue;
+            int y = int.MinValue;
+
+            if (this.textBox_setX.Text == "")
+            {
+                MessageBox.Show("请输入要设置焦点的X的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_setX.Text, out x);
+            }
+
+            if (this.textBox_setY.Text == "")
+            {
+                MessageBox.Show("请输入要设置焦点的y的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_setY.Text, out y);
+            }
+
+            //用屏幕取点工具可以得到坐标
+            SetCursorPos(x, y);
+
+            //点击获得输入的焦点
+            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), 0, 0, 0, IntPtr.Zero);
+            System.Threading.Thread.Sleep(200);
+            //3.-------------------------------
+            SendKeys.SendWait("^{V}");
+
+            //4.-------------------------------
+            System.Threading.Thread.Sleep(200);
+            SendEnterOperater();
+        }
+
+        /// <summary>
+        /// 给华尔街见闻-7*24小时新闻驱动使用的，文字信息剪切版然后复制粘贴到威信面板
+        /// </summary>
+        public void GiveToWallStreetEventDriveToAction(string wallStreetContent)
+        {
+            string c = "7*24华尔街实时商品事件驱动信息:--" + "\n" + wallStreetContent;
+
+            Clipboard.Clear();
+            Clipboard.SetDataObject(c);
+
+            //2--------------------------------------------------
+            int x = int.MinValue;
+            int y = int.MinValue;
+
+            if (this.textBox_setX.Text == "")
+            {
+                MessageBox.Show("请输入要设置焦点的X的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_setX.Text, out x);
+            }
+
+            if (this.textBox_setY.Text == "")
+            {
+                MessageBox.Show("请输入要设置焦点的y的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_setY.Text, out y);
+            }
+
+            //用屏幕取点工具可以得到坐标
+            SetCursorPos(x, y);
+
+            //点击获得输入的焦点
+            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), 0, 0, 0, IntPtr.Zero);
+            System.Threading.Thread.Sleep(200);
+            //3.-------------------------------
+            SendKeys.SendWait("^{V}");
+
+            //4.-------------------------------
+            System.Threading.Thread.Sleep(500);
+            SendEnterOperater();
+        }
 
         private void SendMcStatus()
         {
@@ -325,30 +441,43 @@ namespace WeChartNotify
                         string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
                         string cpu = ComputerInfomation.getCPUUsage();
 
-                        MaxWeChatForm();
+                        ////MaxWeChatForm();
 
-                        //1.输入内容;
-                        SendMessageInfo("1.mc process is going ok");
-                        SendEnterOperater();
+                        ////1.输入内容;
+                        //SendMessageInfo("1.mc process is going ok");
+                        //SendEnterOperater();
 
-                        //1.输入内容;
-                        SendMessageInfo("2.memory-usage is " + rm);
-                        SendEnterOperater();
+                        ////1.输入内容;
+                        //SendMessageInfo("2.memory-usage is " + rm);
+                        //SendEnterOperater();
 
-                        //1.输入内容;
-                        SendMessageInfo("3.cpu-usgae is " + cpu);
-                        SendEnterOperater();
+                        ////1.输入内容;
+                        //SendMessageInfo("3.cpu-usgae is " + cpu);
+                        //SendEnterOperater();
+
+                        ////3.完成截图;
+                        //SendShotScreenOperater();
+
+                        ////4.点击发送;
+                        //SendEnterOperater();
+
+                        ////5.完成以上,发语音提醒到app-QQ;
+                        //SendEnterVoiceOperater();
+
+                        ////MinWeChatForm();
+
+                        string content = "服务器终端实时状态:" + "\n" +
+            "1.Multicharts 进程运行良好..." + "\n" +
+            "2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+            "3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n";
+
+                        UseClipBoardWenziSend(content);
 
                         //3.完成截图;
                         SendShotScreenOperater();
 
                         //4.点击发送;
                         SendEnterOperater();
-
-                        //5.完成以上,发语音提醒到app-QQ;
-                        SendEnterVoiceOperater();
-
-                        MinWeChatForm();
                     }
                     else
                     {
@@ -356,38 +485,51 @@ namespace WeChartNotify
                         string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
                         string cpu = ComputerInfomation.getCPUUsage();
 
-                        MaxWeChatForm();
+                        ////MaxWeChatForm();
 
-                        //1.输入内容;
-                        SendMessageInfo("1.mc process is going ok");
-                        SendEnterOperater();
+                        ////1.输入内容;
+                        //SendMessageInfo("1.mc process is going ok");
+                        //SendEnterOperater();
 
-                        //1.输入内容;
-                        SendMessageInfo("2.memory-usage is " + rm);
-                        SendEnterOperater();
+                        ////1.输入内容;
+                        //SendMessageInfo("2.memory-usage is " + rm);
+                        //SendEnterOperater();
 
-                        //1.输入内容;
-                        SendMessageInfo("3.cpu-usgae is " + cpu);
-                        SendEnterOperater();
+                        ////1.输入内容;
+                        //SendMessageInfo("3.cpu-usgae is " + cpu);
+                        //SendEnterOperater();
+
+                        ////3.完成截图;
+                        //SendShotScreenOperater();
+
+                        ////4.点击发送;
+                        //SendEnterOperater();
+
+                        ////5.完成以上,发语音提醒到app-QQ;
+                        //SendEnterVoiceOperater();
+
+                        ////MinWeChatForm();
+
+                        string content = "服务器终端实时状态:" + "\n" +
+"1.Multicharts 进程运行异常,请立即检查..." + "\n" +
+"2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+"3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n";
+
+                        UseClipBoardWenziSend(content);
 
                         //3.完成截图;
                         SendShotScreenOperater();
 
                         //4.点击发送;
                         SendEnterOperater();
-
-                        //5.完成以上,发语音提醒到app-QQ;
-                        SendEnterVoiceOperater();
-
-                        MinWeChatForm();
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                 
+
             }
-           
+
         }
 
         private void Time2_Click(object sender, EventArgs e)
@@ -408,24 +550,35 @@ namespace WeChartNotify
 
                 m_lastTxtSingleInfo = lastSingleInfo;
 
-                MaxWeChatForm();
+                ////MaxWeChatForm();
 
-                //1.输入内容;
-                SendMessageInfo(m_lastTxtSingleInfo);
+                ////1.输入内容;
+                //SendMessageInfo(m_lastTxtSingleInfo);
 
-                //2.点击发送;
-                SendEnterOperater();
+                ////2.点击发送;
+                //SendEnterOperater();
+
+                ////3.完成截图;
+                //SendShotScreenOperater();
+
+                ////4.点击发送;
+                //SendEnterOperater();
+
+                ////5.完成以上,发语音提醒到app-QQ;
+                //SendEnterVoiceOperater();
+
+                ////MinWeChatForm();
+
+                string content = "服务器端Multicharts有新的成交信息:" + "\n" +
+                    m_lastTxtSingleInfo + "\n";
+
+                UseClipBoardWenziSend(content);
 
                 //3.完成截图;
                 SendShotScreenOperater();
 
                 //4.点击发送;
                 SendEnterOperater();
-
-                //5.完成以上,发语音提醒到app-QQ;
-                SendEnterVoiceOperater();
-
-                MinWeChatForm();
             }
 
             this.timer2.Start();
@@ -500,6 +653,8 @@ namespace WeChartNotify
 
         private void SendShotScreenOperater()
         {
+            System.Threading.Thread.Sleep(600);
+
             //1-----------------------------------------
             //屏幕宽
             int iWidth = Screen.PrimaryScreen.Bounds.Width;
@@ -623,7 +778,7 @@ namespace WeChartNotify
             {
                 //设置文件共享方式为读写，FileShare.ReadWrite，这样的话，就可以打开了
                 FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write);
-                fs.SetLength(0);             
+                fs.SetLength(0);
             }
             catch (Exception ex)
             {
@@ -808,7 +963,7 @@ namespace WeChartNotify
         /// <param name="e"></param>
         private void Start_ClockCheckChanged(object sender, EventArgs e)
         {
-            if(this.radioButton_Start.Checked)
+            if (this.radioButton_Start.Checked)
             {
                 if (this.textBox_PATH.Text == "")
                 {
@@ -940,6 +1095,12 @@ namespace WeChartNotify
         private void ToolStripMenuIteｍ_pirexHolder_Click(object sender, EventArgs e)
         {
             FormPixelCheck holder = new FormPixelCheck(this);
+            holder.Show();
+        }
+
+        private void ToolStripMenuItem_EventDrive_Click(object sender, EventArgs e)
+        {
+            WallStreetEventDriveForm holder = new WallStreetEventDriveForm(this);
             holder.Show();
         }
     }

@@ -75,6 +75,7 @@
             this.ToolStripMenuItem_HoldScreenData = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_ScreenSeen = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_XiangSuToStr = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuIteｍ_pirexHolder = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_realInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox_Morning = new System.Windows.Forms.TextBox();
@@ -99,8 +100,8 @@
             this.textBox_MinY = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox_MinX = new System.Windows.Forms.TextBox();
-            this.ToolStripMenuIteｍ_pirexHolder = new System.Windows.Forms.ToolStripMenuItem();
             this.ibtws1 = new WeChartNotify.IBTWS();
+            this.ToolStripMenuItem_EventDrive = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.EA_TEXT_SINGLE_INFO.SuspendLayout();
@@ -479,7 +480,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.帮助ToolStripMenuItem,
             this.辅助工具ToolStripMenuItem,
-            this.任务管理器ToolStripMenuItem});
+            this.任务管理器ToolStripMenuItem,
+            this.ToolStripMenuItem_EventDrive});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1154, 25);
@@ -515,23 +517,30 @@
             // ToolStripMenuItem_HoldScreenData
             // 
             this.ToolStripMenuItem_HoldScreenData.Name = "ToolStripMenuItem_HoldScreenData";
-            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_HoldScreenData.Text = "取词交互-取词";
             this.ToolStripMenuItem_HoldScreenData.Click += new System.EventHandler(this.ToolStripMenuItem_HoldScreenData_Click);
             // 
             // ToolStripMenuItem_ScreenSeen
             // 
             this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
-            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
             this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
             // 
             // ToolStripMenuItem_XiangSuToStr
             // 
             this.ToolStripMenuItem_XiangSuToStr.Name = "ToolStripMenuItem_XiangSuToStr";
-            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
             this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
+            // 
+            // ToolStripMenuIteｍ_pirexHolder
+            // 
+            this.ToolStripMenuIteｍ_pirexHolder.Name = "ToolStripMenuIteｍ_pirexHolder";
+            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuIteｍ_pirexHolder.Text = "像素取值";
+            this.ToolStripMenuIteｍ_pirexHolder.Click += new System.EventHandler(this.ToolStripMenuIteｍ_pirexHolder_Click);
             // 
             // 任务管理器ToolStripMenuItem
             // 
@@ -755,13 +764,6 @@
             this.textBox_MinX.Size = new System.Drawing.Size(64, 21);
             this.textBox_MinX.TabIndex = 0;
             // 
-            // ToolStripMenuIteｍ_pirexHolder
-            // 
-            this.ToolStripMenuIteｍ_pirexHolder.Name = "ToolStripMenuIteｍ_pirexHolder";
-            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(177, 22);
-            this.ToolStripMenuIteｍ_pirexHolder.Text = "像素取值";
-            this.ToolStripMenuIteｍ_pirexHolder.Click += new System.EventHandler(this.ToolStripMenuIteｍ_pirexHolder_Click);
-            // 
             // ibtws1
             // 
             this.ibtws1.Location = new System.Drawing.Point(741, 45);
@@ -769,6 +771,13 @@
             this.ibtws1.Size = new System.Drawing.Size(397, 548);
             this.ibtws1.TabIndex = 18;
             this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
+            // 
+            // ToolStripMenuItem_EventDrive
+            // 
+            this.ToolStripMenuItem_EventDrive.Name = "ToolStripMenuItem_EventDrive";
+            this.ToolStripMenuItem_EventDrive.Size = new System.Drawing.Size(142, 21);
+            this.ToolStripMenuItem_EventDrive.Text = "7*24全球事件驱动监听";
+            this.ToolStripMenuItem_EventDrive.Click += new System.EventHandler(this.ToolStripMenuItem_EventDrive_Click);
             // 
             // Form1
             // 
@@ -892,6 +901,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox textBox_MinX;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuIteｍ_pirexHolder;
+        private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_EventDrive;
     }
 }
 
