@@ -154,7 +154,8 @@ namespace WeChartNotify
                 }
                 catch (Exception err)
                 {
-                    MessageBox.Show("解析出现问题，请检查:" + err.Message);
+                    //在这里只是捕获，但是不做处理 ，保证程序继续执行
+                    //MessageBox.Show("解析出现问题，请检查:" + err.Message);
                 }
             }
 
@@ -191,6 +192,9 @@ namespace WeChartNotify
             this.listView_Content.Items.Clear();
 
             Root content = GetWallStreetHtl(this.textBox_URL.Text);
+
+            if (content == null || content.data == null || content.data.items == null) return;
+
             List<ItemsItem> items = content.data.items;
             foreach(ItemsItem it in items)
             {
@@ -207,9 +211,12 @@ namespace WeChartNotify
 
         private void Loop_TickEvent(object sender, EventArgs e)
         {
+            Root content = GetWallStreetHtl(this.textBox_URL.Text);
+
+            if (content == null || content.data == null || content.data.items == null) return;
+
             this.listView_Content.Items.Clear();
 
-            Root content = GetWallStreetHtl(this.textBox_URL.Text);
             List<ItemsItem> items = content.data.items;
             foreach (ItemsItem it in items)
             {
