@@ -24,7 +24,7 @@ namespace WeChartNotify
             InitializeComponent();
             m_otherForm = f;
 
-            this.textBox_URL.Text = string.Format("https://api-prod.wallstreetcn.com/apiv1/content/lives?channel=commodity-channel%2Cbestanalyst-channel&client=pc&cursor={0}&limit=20&first_page=false&accept=live%2Cvip-live",int.MaxValue);
+            this.textBox_URL.Text = string.Format("https://api-prod.wallstreetcn.com/apiv1/content/lives?channel=commodity-channel%2Cbestanalyst-channel&client=pc&cursor={0}&limit=1&first_page=false&accept=live%2Cvip-live",int.MaxValue);
         }
 
 
