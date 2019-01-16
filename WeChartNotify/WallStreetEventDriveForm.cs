@@ -225,9 +225,24 @@ namespace WeChartNotify
 
             if (items != null && items.Count > 0 && items[0].content_text.CompareTo(m_startContent) != 0)
             {
-                (m_otherForm as Form1).GiveToWallStreetEventDriveToAction(items[0].content_text);
+                (m_otherForm as Form1).GiveToWallStreetEventDriveToAction("7*24华尔街实时商品事件驱动信息:--" + "\n" + items[0].content_text);
                 m_startContent = items[0].content_text;
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView_Content_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_URL_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

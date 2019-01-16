@@ -382,7 +382,7 @@ namespace WeChartNotify
         /// </summary>
         public void GiveToWallStreetEventDriveToAction(string wallStreetContent)
         {
-            string c = "7*24华尔街实时商品事件驱动信息:--" + "\n" + wallStreetContent;
+            string c = wallStreetContent;
 
             Clipboard.Clear();
             Clipboard.SetDataObject(c);
@@ -431,9 +431,7 @@ namespace WeChartNotify
             {
                 string dateTime = DateTime.Now.ToString("T");
 
-                if (DateTime.Now.ToString("T").CompareTo(this.textBox_Morning.Text) == 0
-                    || DateTime.Now.ToString("T").CompareTo(this.textBox_Noon.Text) == 0
-                    || DateTime.Now.ToString("T").CompareTo(this.textBox_Eveing.Text) == 0)
+                if (DateTime.Now.ToString("T").CompareTo(this.textBox_Morning.Text) == 0)
                 {
                     System.Threading.Thread.Sleep(1000);
                     if (CheckProcessIsOk())
@@ -466,10 +464,13 @@ namespace WeChartNotify
 
                         ////MinWeChatForm();
 
-                        string content = "服务器终端实时状态:" + "\n" +
-            "1.Multicharts 进程运行良好..." + "\n" +
-            "2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
-            "3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n";
+                        string content = string.Empty;
+                        content = "服务器终端实时状态:" + "\n" +
+                                    "   1.Multicharts 进程运行良好..." + "\n" +
+                                    "   2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                                    "   3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n" + "\n";
+
+                        //content = content + "华尔街早餐-交易人生学习: " + "\n" + ConfigurationManager.AppSettings["WallStreet1"] + "\n";
 
                         UseClipBoardWenziSend(content);
 
@@ -510,10 +511,209 @@ namespace WeChartNotify
 
                         ////MinWeChatForm();
 
-                        string content = "服务器终端实时状态:" + "\n" +
-"1.Multicharts 进程运行异常,请立即检查..." + "\n" +
-"2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
-"3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n";
+                        string content = string.Empty;
+                        content = "服务器终端实时状态:" + "\n" +
+                                    "   1.Multicharts 进程运行异常,请立即检查..." + "\n" +
+                                    "   2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                                    "   3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n" + "\n";
+
+                        //content = content + "华尔街早餐-交易人生学习: " + "\n" + ConfigurationManager.AppSettings["WallStreet1"] + "\n";
+
+                        UseClipBoardWenziSend(content);
+
+                        //3.完成截图;
+                        SendShotScreenOperater();
+
+                        //4.点击发送;
+                        SendEnterOperater();
+                    }
+                }
+
+                if (DateTime.Now.ToString("T").CompareTo(this.textBox_Noon.Text) == 0)
+                {
+                    System.Threading.Thread.Sleep(1000);
+                    if (CheckProcessIsOk())
+                    {
+                        string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
+                        string cpu = ComputerInfomation.getCPUUsage();
+
+                        ////MaxWeChatForm();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("1.mc process is going ok");
+                        //SendEnterOperater();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("2.memory-usage is " + rm);
+                        //SendEnterOperater();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("3.cpu-usgae is " + cpu);
+                        //SendEnterOperater();
+
+                        ////3.完成截图;
+                        //SendShotScreenOperater();
+
+                        ////4.点击发送;
+                        //SendEnterOperater();
+
+                        ////5.完成以上,发语音提醒到app-QQ;
+                        //SendEnterVoiceOperater();
+
+                        ////MinWeChatForm();
+
+                        string content = string.Empty;
+                        content = "服务器终端实时状态:" + "\n" +
+                                    "   1.Multicharts 进程运行良好..." + "\n" +
+                                    "   2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                                    "   3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n" + "\n";
+
+                        //content = content + "华尔街午餐-全球即时要闻: " + "\n" + ConfigurationManager.AppSettings["WallStreet2"] + "\n";
+
+                        UseClipBoardWenziSend(content);
+
+                        //3.完成截图;
+                        SendShotScreenOperater();
+
+                        //4.点击发送;
+                        SendEnterOperater();
+                    }
+                    else
+                    {
+
+                        string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
+                        string cpu = ComputerInfomation.getCPUUsage();
+
+                        ////MaxWeChatForm();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("1.mc process is going ok");
+                        //SendEnterOperater();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("2.memory-usage is " + rm);
+                        //SendEnterOperater();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("3.cpu-usgae is " + cpu);
+                        //SendEnterOperater();
+
+                        ////3.完成截图;
+                        //SendShotScreenOperater();
+
+                        ////4.点击发送;
+                        //SendEnterOperater();
+
+                        ////5.完成以上,发语音提醒到app-QQ;
+                        //SendEnterVoiceOperater();
+
+                        ////MinWeChatForm();
+
+                        string content = string.Empty;
+                        content = "服务器终端实时状态:" + "\n" +
+                                    "   1.Multicharts 进程运行异常,请立即检查..." + "\n" +
+                                    "   2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                                    "   3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n" + "\n";
+
+                        //content = content + "华尔街午餐-全球即时要闻: " + "\n" + ConfigurationManager.AppSettings["WallStreet2"] + "\n";
+
+                        UseClipBoardWenziSend(content);
+
+                        //3.完成截图;
+                        SendShotScreenOperater();
+
+                        //4.点击发送;
+                        SendEnterOperater();
+                    }
+                }
+
+                if (DateTime.Now.ToString("T").CompareTo(this.textBox_Eveing.Text) == 0)
+                {
+                    System.Threading.Thread.Sleep(1000);
+                    if (CheckProcessIsOk())
+                    {
+                        string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
+                        string cpu = ComputerInfomation.getCPUUsage();
+
+                        ////MaxWeChatForm();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("1.mc process is going ok");
+                        //SendEnterOperater();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("2.memory-usage is " + rm);
+                        //SendEnterOperater();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("3.cpu-usgae is " + cpu);
+                        //SendEnterOperater();
+
+                        ////3.完成截图;
+                        //SendShotScreenOperater();
+
+                        ////4.点击发送;
+                        //SendEnterOperater();
+
+                        ////5.完成以上,发语音提醒到app-QQ;
+                        //SendEnterVoiceOperater();
+
+                        ////MinWeChatForm();
+
+                        string content = string.Empty;
+                        content = "服务器终端实时状态:" + "\n" +
+                                    "   1.Multicharts 进程运行良好..." + "\n" +
+                                    "   2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                                    "   3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n" + "\n";
+
+                        //content = content + "华尔街晚餐-大宗商品情报: " + "\n" + ConfigurationManager.AppSettings["WallStreet3"] + "\n";
+
+                        UseClipBoardWenziSend(content);
+
+                        //3.完成截图;
+                        SendShotScreenOperater();
+
+                        //4.点击发送;
+                        SendEnterOperater();
+                    }
+                    else
+                    {
+
+                        string rm = ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString();
+                        string cpu = ComputerInfomation.getCPUUsage();
+
+                        ////MaxWeChatForm();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("1.mc process is going ok");
+                        //SendEnterOperater();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("2.memory-usage is " + rm);
+                        //SendEnterOperater();
+
+                        ////1.输入内容;
+                        //SendMessageInfo("3.cpu-usgae is " + cpu);
+                        //SendEnterOperater();
+
+                        ////3.完成截图;
+                        //SendShotScreenOperater();
+
+                        ////4.点击发送;
+                        //SendEnterOperater();
+
+                        ////5.完成以上,发语音提醒到app-QQ;
+                        //SendEnterVoiceOperater();
+
+                        ////MinWeChatForm();
+
+                        string content = string.Empty;
+                        content = "服务器终端实时状态:" + "\n" +
+                                    "   1.Multicharts 进程运行异常,请立即检查..." + "\n" +
+                                    "   2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                                    "   3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n" + "\n";
+
+                        //content = content + "华尔街晚餐-大宗商品情报: " + "\n" + ConfigurationManager.AppSettings["WallStreet3"] + "\n";
 
                         UseClipBoardWenziSend(content);
 
@@ -1101,6 +1301,12 @@ namespace WeChartNotify
         private void ToolStripMenuItem_EventDrive_Click(object sender, EventArgs e)
         {
             WallStreetEventDriveForm holder = new WallStreetEventDriveForm(this);
+            holder.Show();
+        }
+
+        private void ToolStripMenuItem_MonthInspire_Click(object sender, EventArgs e)
+        {
+            FormSymbolInspireMonthNotify holder = new FormSymbolInspireMonthNotify();
             holder.Show();
         }
     }

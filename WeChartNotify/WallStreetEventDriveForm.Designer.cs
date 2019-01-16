@@ -44,6 +44,7 @@
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 0;
             this.label1.Text = "URL-Api:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox_URL
             // 
@@ -51,6 +52,7 @@
             this.textBox_URL.Name = "textBox_URL";
             this.textBox_URL.Size = new System.Drawing.Size(715, 21);
             this.textBox_URL.TabIndex = 1;
+            this.textBox_URL.TextChanged += new System.EventHandler(this.textBox_URL_TextChanged);
             // 
             // listView_Content
             // 
@@ -60,6 +62,7 @@
             this.listView_Content.TabIndex = 2;
             this.listView_Content.UseCompatibleStateImageBehavior = false;
             this.listView_Content.View = System.Windows.Forms.View.List;
+            this.listView_Content.SelectedIndexChanged += new System.EventHandler(this.listView_Content_SelectedIndexChanged);
             // 
             // button_Start
             // 

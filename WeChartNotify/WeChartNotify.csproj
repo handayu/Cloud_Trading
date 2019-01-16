@@ -187,6 +187,12 @@
     <Compile Include="FormShootPictureHoldString.Designer.cs">
       <DependentUpon>FormShootPictureHoldString.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSymbolInspireMonthNotify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSymbolInspireMonthNotify.Designer.cs">
+      <DependentUpon>FormSymbolInspireMonthNotify.cs</DependentUpon>
+    </Compile>
     <Compile Include="IBTWS.AutoSetterControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormShootPictureHoldString.resx">
       <DependentUpon>FormShootPictureHoldString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSymbolInspireMonthNotify.resx">
+      <DependentUpon>FormSymbolInspireMonthNotify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IBTWS.AutoSetterControl.resx">
       <DependentUpon>IBTWS.AutoSetterControl.cs</DependentUpon>
