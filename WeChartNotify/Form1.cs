@@ -334,6 +334,43 @@ namespace WeChartNotify
             }
         }
 
+        /// <summary>
+        /// 供给给外部跳转工作区
+        /// </summary>
+        public void GiveToOtherToAction(string preNext, int num)
+        {
+            if(num == 0 || !CheckProcessIsOk())
+            {
+                return;
+            }
+
+            //0.激活multicharts窗口才能完成窗口快捷键发送
+
+
+            ////1.发送快捷键切换工作
+            //if (preNext == "+")
+            //{
+            //    for(int i = 0;i<num;i++)
+            //    {
+            //        SendKeys.SendWait("^{PGDN}");
+            //    }
+            //}
+
+            //if (preNext == "-")
+            //{
+            //    for (int i = 0; i < num; i++)
+            //    {
+            //        SendKeys.SendWait("^{PGUP}");
+            //    }
+            //}
+
+            ////3.完成截图;
+            //SendShotScreenOperater();
+
+            ////4.点击发送;
+            //SendEnterOperater();
+        }
+
         private void UseClipBoardWenziSend(string content)
         {
             Clipboard.Clear();
@@ -1308,6 +1345,11 @@ namespace WeChartNotify
         {
             FormSymbolInspireMonthNotify holder = new FormSymbolInspireMonthNotify();
             holder.Show();
+        }
+
+        private void Button_SwitchSpace(object sender, EventArgs e)
+        {
+            GiveToOtherToAction("+", 0);
         }
     }
 }

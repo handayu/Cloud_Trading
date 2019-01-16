@@ -78,6 +78,8 @@
             this.ToolStripMenuIteｍ_pirexHolder = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_realInfo = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_EventDrive = new System.Windows.Forms.ToolStripMenuItem();
+            this.ToolStripMenuItem_MonthInspire = new System.Windows.Forms.ToolStripMenuItem();
             this.textBox_Morning = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox_Noon = new System.Windows.Forms.TextBox();
@@ -100,9 +102,8 @@
             this.textBox_MinY = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox_MinX = new System.Windows.Forms.TextBox();
-            this.ToolStripMenuItem_EventDrive = new System.Windows.Forms.ToolStripMenuItem();
             this.ibtws1 = new WeChartNotify.IBTWS();
-            this.ToolStripMenuItem_MonthInspire = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.EA_TEXT_SINGLE_INFO.SuspendLayout();
@@ -458,6 +459,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.button1);
             this.groupBox6.Controls.Add(this.button_ShotScreen);
             this.groupBox6.Location = new System.Drawing.Point(385, 155);
             this.groupBox6.Name = "groupBox6";
@@ -519,28 +521,28 @@
             // ToolStripMenuItem_HoldScreenData
             // 
             this.ToolStripMenuItem_HoldScreenData.Name = "ToolStripMenuItem_HoldScreenData";
-            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuItem_HoldScreenData.Text = "取词交互-取词";
             this.ToolStripMenuItem_HoldScreenData.Click += new System.EventHandler(this.ToolStripMenuItem_HoldScreenData_Click);
             // 
             // ToolStripMenuItem_ScreenSeen
             // 
             this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
-            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
             this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
             // 
             // ToolStripMenuItem_XiangSuToStr
             // 
             this.ToolStripMenuItem_XiangSuToStr.Name = "ToolStripMenuItem_XiangSuToStr";
-            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
             this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
             // 
             // ToolStripMenuIteｍ_pirexHolder
             // 
             this.ToolStripMenuIteｍ_pirexHolder.Name = "ToolStripMenuIteｍ_pirexHolder";
-            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(177, 22);
             this.ToolStripMenuIteｍ_pirexHolder.Text = "像素取值";
             this.ToolStripMenuIteｍ_pirexHolder.Click += new System.EventHandler(this.ToolStripMenuIteｍ_pirexHolder_Click);
             // 
@@ -555,9 +557,23 @@
             // ToolStripMenuItem_realInfo
             // 
             this.ToolStripMenuItem_realInfo.Name = "ToolStripMenuItem_realInfo";
-            this.ToolStripMenuItem_realInfo.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_realInfo.Size = new System.Drawing.Size(160, 22);
             this.ToolStripMenuItem_realInfo.Text = "计算机实时状态";
             this.ToolStripMenuItem_realInfo.Click += new System.EventHandler(this.ToolStripMenuItem_realInfo_Click);
+            // 
+            // ToolStripMenuItem_EventDrive
+            // 
+            this.ToolStripMenuItem_EventDrive.Name = "ToolStripMenuItem_EventDrive";
+            this.ToolStripMenuItem_EventDrive.Size = new System.Drawing.Size(142, 21);
+            this.ToolStripMenuItem_EventDrive.Text = "7*24全球事件驱动监听";
+            this.ToolStripMenuItem_EventDrive.Click += new System.EventHandler(this.ToolStripMenuItem_EventDrive_Click);
+            // 
+            // ToolStripMenuItem_MonthInspire
+            // 
+            this.ToolStripMenuItem_MonthInspire.Name = "ToolStripMenuItem_MonthInspire";
+            this.ToolStripMenuItem_MonthInspire.Size = new System.Drawing.Size(97, 21);
+            this.ToolStripMenuItem_MonthInspire.Text = "主力换月-预警";
+            this.ToolStripMenuItem_MonthInspire.Click += new System.EventHandler(this.ToolStripMenuItem_MonthInspire_Click);
             // 
             // textBox_Morning
             // 
@@ -766,13 +782,6 @@
             this.textBox_MinX.Size = new System.Drawing.Size(64, 21);
             this.textBox_MinX.TabIndex = 0;
             // 
-            // ToolStripMenuItem_EventDrive
-            // 
-            this.ToolStripMenuItem_EventDrive.Name = "ToolStripMenuItem_EventDrive";
-            this.ToolStripMenuItem_EventDrive.Size = new System.Drawing.Size(142, 21);
-            this.ToolStripMenuItem_EventDrive.Text = "7*24全球事件驱动监听";
-            this.ToolStripMenuItem_EventDrive.Click += new System.EventHandler(this.ToolStripMenuItem_EventDrive_Click);
-            // 
             // ibtws1
             // 
             this.ibtws1.Location = new System.Drawing.Point(741, 45);
@@ -781,12 +790,15 @@
             this.ibtws1.TabIndex = 18;
             this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
             // 
-            // ToolStripMenuItem_MonthInspire
+            // button1
             // 
-            this.ToolStripMenuItem_MonthInspire.Name = "ToolStripMenuItem_MonthInspire";
-            this.ToolStripMenuItem_MonthInspire.Size = new System.Drawing.Size(97, 21);
-            this.ToolStripMenuItem_MonthInspire.Text = "主力换月-预警";
-            this.ToolStripMenuItem_MonthInspire.Click += new System.EventHandler(this.ToolStripMenuItem_MonthInspire_Click);
+            this.button1.Location = new System.Drawing.Point(39, 131);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(276, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "BUtton-SwitchWorkSpace";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button_SwitchSpace);
             // 
             // Form1
             // 
@@ -912,6 +924,7 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuIteｍ_pirexHolder;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_EventDrive;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_MonthInspire;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -211,8 +211,22 @@ namespace WeChartNotify
                     string str = GetString();
                     if (str != null && str != "" && str.Contains("hi"))
                     {
+                        //如果是hi,则发送目前状态和截图
                         (m_otherForm as Form1).GiveToOtherToAction();
                     }
+
+                    
+                    //if (str != null && str != "" && (str.Contains("+")))
+                    //{
+                    //    //如果是Num，进入下一工作区Num，如果是-num,回溯到上一工作区，然后并且截图；
+                    //    (m_otherForm as Form1).GiveToOtherToAction();
+                    //}
+
+                    //if (str != null && str != "" && (str.Contains("-")))
+                    //{
+                    //    //如果是Num，进入下一工作区Num，如果是-num,回溯到上一工作区，然后并且截图；
+                    //    (m_otherForm as Form1).GiveToOtherToAction();
+                    //}
                 }
             }
             catch(Exception ex)
