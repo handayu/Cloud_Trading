@@ -215,18 +215,19 @@ namespace WeChartNotify
                         (m_otherForm as Form1).GiveToOtherToAction();
                     }
 
-                    
-                    //if (str != null && str != "" && (str.Contains("+")))
-                    //{
-                    //    //如果是Num，进入下一工作区Num，如果是-num,回溯到上一工作区，然后并且截图；
-                    //    (m_otherForm as Form1).GiveToOtherToAction();
-                    //}
+                    if (str != null && str != "" && (str.Contains("+") || str.Contains("-")))
+                    {
+                        //连续切换工作区次数
+                        string numStr = str.Substring(1);
+                        int num = 0;
+                        int.TryParse(numStr, out num);
 
-                    //if (str != null && str != "" && (str.Contains("-")))
-                    //{
-                    //    //如果是Num，进入下一工作区Num，如果是-num,回溯到上一工作区，然后并且截图；
-                    //    (m_otherForm as Form1).GiveToOtherToAction();
-                    //}
+                        //切换方向
+                        string direc = str[0].ToString();
+
+                        //如果是Num，进入下一工作区Num，如果是-num,回溯到上一工作区，然后并且截图；
+                        (m_otherForm as Form1).GiveToOtherToAction(direc, num);
+                    }
                 }
             }
             catch(Exception ex)

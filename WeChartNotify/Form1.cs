@@ -21,7 +21,8 @@ namespace WeChartNotify
 
         [DllImport("user32.dll")]
         static extern bool SetCursorPos(int X, int Y);
-
+        [DllImport("user32.dll")]
+        public static extern bool SetForegroundWindow(int hWnd);
         bool m_IsNotify = false;
 
         public Form1()
@@ -345,30 +346,33 @@ namespace WeChartNotify
             }
 
             //0.激活multicharts窗口才能完成窗口快捷键发送
+            WindowsHooker h = new WindowsHooker();
+            h.GetHwd();
 
+            //1.发送快捷键切换工作
+            if (preNext == "+")
+            {
+                for (int i = 0; i < num; i++)
+                {
+                    SendKeys.SendWait("^{F1}");
+                    System.Threading.Thread.Sleep(500);
+                }
+            }
 
-            ////1.发送快捷键切换工作
-            //if (preNext == "+")
-            //{
-            //    for(int i = 0;i<num;i++)
-            //    {
-            //        SendKeys.SendWait("^{PGDN}");
-            //    }
-            //}
+            if (preNext == "-")
+            {
+                for (int i = 0; i < num; i++)
+                {
+                    SendKeys.SendWait("^{F2}");
+                    System.Threading.Thread.Sleep(500);
+                }
+            }
 
-            //if (preNext == "-")
-            //{
-            //    for (int i = 0; i < num; i++)
-            //    {
-            //        SendKeys.SendWait("^{PGUP}");
-            //    }
-            //}
+            //3.完成截图;
+            SendShotScreenOperater();
 
-            ////3.完成截图;
-            //SendShotScreenOperater();
-
-            ////4.点击发送;
-            //SendEnterOperater();
+            //4.点击发送;
+            SendEnterOperater();
         }
 
         private void UseClipBoardWenziSend(string content)
@@ -1347,9 +1351,16 @@ namespace WeChartNotify
             holder.Show();
         }
 
-        private void Button_SwitchSpace(object sender, EventArgs e)
+        private void Button_PreWorkSpace(object sender, EventArgs e)
         {
-            GiveToOtherToAction("+", 0);
+            GiveToOtherToAction("-", 1);
+
+        }
+
+        private void Button_NextWorkSpace(object sender, EventArgs e)
+        {
+            GiveToOtherToAction("+", 1);
+
         }
     }
 }

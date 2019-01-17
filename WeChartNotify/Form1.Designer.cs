@@ -102,8 +102,10 @@
             this.textBox_MinY = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox_MinX = new System.Windows.Forms.TextBox();
+            this.button_Pre = new System.Windows.Forms.Button();
             this.ibtws1 = new WeChartNotify.IBTWS();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox_numWorkSpace = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.EA_TEXT_SINGLE_INFO.SuspendLayout();
@@ -459,7 +461,9 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.button1);
+            this.groupBox6.Controls.Add(this.textBox_numWorkSpace);
+            this.groupBox6.Controls.Add(this.button2);
+            this.groupBox6.Controls.Add(this.button_Pre);
             this.groupBox6.Controls.Add(this.button_ShotScreen);
             this.groupBox6.Location = new System.Drawing.Point(385, 155);
             this.groupBox6.Name = "groupBox6";
@@ -782,6 +786,16 @@
             this.textBox_MinX.Size = new System.Drawing.Size(64, 21);
             this.textBox_MinX.TabIndex = 0;
             // 
+            // button_Pre
+            // 
+            this.button_Pre.Location = new System.Drawing.Point(39, 131);
+            this.button_Pre.Name = "button_Pre";
+            this.button_Pre.Size = new System.Drawing.Size(175, 23);
+            this.button_Pre.TabIndex = 1;
+            this.button_Pre.Text = "BUtton_Next";
+            this.button_Pre.UseVisualStyleBackColor = true;
+            this.button_Pre.Click += new System.EventHandler(this.Button_NextWorkSpace);
+            // 
             // ibtws1
             // 
             this.ibtws1.Location = new System.Drawing.Point(741, 45);
@@ -790,15 +804,23 @@
             this.ibtws1.TabIndex = 18;
             this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(39, 131);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(276, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "BUtton-SwitchWorkSpace";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button_SwitchSpace);
+            this.button2.Location = new System.Drawing.Point(42, 160);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(175, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "BUtton_Pre";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button_PreWorkSpace);
+            // 
+            // textBox_numWorkSpace
+            // 
+            this.textBox_numWorkSpace.Location = new System.Drawing.Point(251, 152);
+            this.textBox_numWorkSpace.Name = "textBox_numWorkSpace";
+            this.textBox_numWorkSpace.Size = new System.Drawing.Size(64, 21);
+            this.textBox_numWorkSpace.TabIndex = 6;
+            this.textBox_numWorkSpace.Text = "1";
             // 
             // Form1
             // 
@@ -835,6 +857,7 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -924,7 +947,9 @@
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuIteｍ_pirexHolder;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_EventDrive;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem_MonthInspire;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Pre;
+        private System.Windows.Forms.TextBox textBox_numWorkSpace;
+        private System.Windows.Forms.Button button2;
     }
 }
 

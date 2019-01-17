@@ -208,6 +208,7 @@
     <Compile Include="WallStreetEventDriveForm.Designer.cs">
       <DependentUpon>WallStreetEventDriveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowsHooks\WindowsHooker.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
