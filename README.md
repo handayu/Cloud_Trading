@@ -58,9 +58,9 @@
 * * *
 
 ### 新增功能的初衷
-*
 - 目前团队策略服务器运行正常，工具提醒运转正常，如下图所示;
 *
+![image](https://github.com/handayu/Cloud_Trading/blob/master/image/wechart.png)
 
 
 
