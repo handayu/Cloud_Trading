@@ -29,7 +29,7 @@
 ### 界面效果 - 1.静态终结果
 *
 
-![image](https://github.com/handayu/OandaTrading/blob/master/image/backtest.jpg)
+![image](https://github.com/handayu/Cloud_Trading/blob/master/image/work.png)
 
 
 
