@@ -61,7 +61,7 @@
 ![image](https://github.com/handayu/Cloud_Trading/blob/master/image/wechart.png)
 
 - 未来管理的策略服务器可能更多，涉及的市场更广。这就需要，在一个微信上能够和多台服务器进行交互，监控和互推信息.
-需要在目前的结构上，进行稍微的变化,如下图结构。
+需要在目前的结构上，进行稍微的变化,如下图结构。多台服务器和主(当前)服务器中心进行交互，主中心服务器再统一和微信进行交互;
 ![image](https://github.com/handayu/Cloud_Trading/blob/master/image/product.png)
 
 
