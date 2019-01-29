@@ -1,24 +1,37 @@
-# Cloud_Trading
-云端交易--策略信号通讯工具提醒
-1.一个进程往txt写入需要预警的文本信息;
-2.该进程定时器定时获取,并仿制键盘操作定位屏幕位置进行输入和截图输出,结合通讯工具完成预警等;
-3.预警内容包括策略信号,服务器状态等等......
-
-# 关于量化交易蒙特卡罗试验
-
+# 本项目主要基于阿里云策略投资组合实时监控（WeChart）,以及未来多台服务器投资组合策略运行的统一管理
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/softethervpn/softethervpn?branch=master&svg=true)](https://ci.appveyor.com/project/softethervpn/softethervpn) [![Travis CI build status](https://travis-ci.org/SoftEtherVPN/SoftEtherVPN.svg?branch=master)](https://travis-ci.org/SoftEtherVPN/SoftEtherVPN) [![gitlab-ci build status](https://gitlab.com/SoftEther/SoftEtherVPN/badges/master/build.svg)](https://gitlab.com/SoftEther/SoftEtherVPN/pipelines) [![Coverity Scan Build Status](https://scan.coverity.com/projects/16304/badge.svg)](https://scan.coverity.com/projects/softethervpn-softethervpn)
+　
+ - 对于自己搭建交易服务器设备而言，策略交易服务器的稳定性一直是个很大的问题。在虚拟机发展迅速的当下，云服务器反而在服务器性能要求不是很高的情形下，是个比较划算的储备。云端服务器可以在99999俗称五个9的情况下365*24小时运转，
+使得全天候的策略成为可能，尤其是对于交易商品cta，全球股指，CFDs以及外汇零售投资组合的团队而言。对于云端服务器的
+实时监控是一个必要的维护过程，除了监控策略服务器本身的稳定性和各项硬件软件参数，还需要对策略服务器策略运行的情况，交易策略的成交，委托，风险等参数获得即时性的了解，刚好可以搭配已经全面做好Message-Notify消息通知的微信和QQ完成365*24小时提醒，由于Google和腾讯的合作，使得安卓－WeChart可以不间断唤醒消息通知，所以进程可以一直在后台。
 
-- 对于很多量化交易爱好者而言，回测是进入实盘交易的必经之路，对于自己有相当的ＩＴ－计算机程序方面基础的交易员而言，大量的随机性试验在自建平台上是可以很轻松实现的，但是对于使用第三方量化交易软件的量化交易者而言，大量的随机性和移动式区间回测，样本内外回测，观察资金曲线在蒙特卡罗样本下的集合性表现就是一个比较难去实现的关卡。基于这个考量，笔者在Multicharts的基础上开发了可以进行蒙特卡罗回测的交易工具，可以在这个基础上进行高密度的策略压力测试，以观察自己策略的普适性和潜在的过度拟合的嫌疑，能更加客观的面对自己的交易策略的表现。
+- 笔者曾经尝试过使用WeChart的WebSocket进行对接，或者使用网页版的Http进行模拟API通信，但很遗憾的是，新申请的微信号的WebSoket无法登陆网页版，所以无法模拟完成web-http模式的通信。所以只能利用PC模拟键盘鼠标技术，和进程间的剪切版通信，完成对信息的wechart发送。
+ 
+*** 
+### 功能预览
 
-* * *
-### 预期测试效果 - 1.静态终结果
+- 一个进程往txt写入需要预警的文本信息;
+- 该进程定时器定时获取,并仿制键盘操作定位屏幕位置进行输入和截图输出,结合通讯工具完成预警等;
+- 预警内容包括策略信号,服务器状态等等;
+
+- 图形识别发送过来的信息，进行消息回复;
+- 网页爬虫获取华尔街见闻的365*24小时的资讯信息，并进行微信播报;
+- 抓取Multicharts-中国版主力合约维护的网页信息，进行换月微信提醒;
+- 定时发送服务器的相关状态(可定在开盘前);
+
+- 进程监控，监控给出的进程是否正常工作，并微信提醒;
+- TWS的自动登陆链接;
+
+### 正在更新的功能
+
+- 多台交易服务器的统一监控，使用同一个微信号;
+
+### 界面效果 - 1.静态终结果
 *
+
 ![image](https://github.com/handayu/OandaTrading/blob/master/image/backtest.jpg)
 
 
-### 预期测试效果 - 2.动态回测过程
-*
-![image](https://github.com/handayu/OandaTrading/blob/master/image/trading.gif)
 
 ### 问题的提出？
 
