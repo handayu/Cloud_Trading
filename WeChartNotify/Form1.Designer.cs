@@ -67,6 +67,9 @@
             this.button_AutoSetingXY = new System.Windows.Forms.Button();
             this.button_Clear = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.textBox_numWorkSpace = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button_Pre = new System.Windows.Forms.Button();
             this.button_ShotScreen = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,10 +105,9 @@
             this.textBox_MinY = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox_MinX = new System.Windows.Forms.TextBox();
-            this.button_Pre = new System.Windows.Forms.Button();
+            this.checkBox_ISNotifyVoice = new System.Windows.Forms.CheckBox();
             this.ibtws1 = new WeChartNotify.IBTWS();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox_numWorkSpace = new System.Windows.Forms.TextBox();
+            this.mCCrashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.EA_TEXT_SINGLE_INFO.SuspendLayout();
@@ -374,6 +376,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.checkBox_ISNotifyVoice);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Controls.Add(this.button_TestVoiceEnter);
             this.groupBox4.Controls.Add(this.textBox_VoiceY);
@@ -397,7 +400,7 @@
             // 
             // button_TestVoiceEnter
             // 
-            this.button_TestVoiceEnter.Location = new System.Drawing.Point(249, 20);
+            this.button_TestVoiceEnter.Location = new System.Drawing.Point(228, 17);
             this.button_TestVoiceEnter.Name = "button_TestVoiceEnter";
             this.button_TestVoiceEnter.Size = new System.Drawing.Size(110, 23);
             this.button_TestVoiceEnter.TabIndex = 0;
@@ -407,7 +410,7 @@
             // 
             // textBox_VoiceY
             // 
-            this.textBox_VoiceY.Location = new System.Drawing.Point(165, 18);
+            this.textBox_VoiceY.Location = new System.Drawing.Point(160, 18);
             this.textBox_VoiceY.Name = "textBox_VoiceY";
             this.textBox_VoiceY.Size = new System.Drawing.Size(64, 21);
             this.textBox_VoiceY.TabIndex = 5;
@@ -415,7 +418,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(124, 25);
+            this.label10.Location = new System.Drawing.Point(119, 25);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(35, 12);
             this.label10.TabIndex = 4;
@@ -472,6 +475,34 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Test-ScreenShot";
             // 
+            // textBox_numWorkSpace
+            // 
+            this.textBox_numWorkSpace.Location = new System.Drawing.Point(251, 152);
+            this.textBox_numWorkSpace.Name = "textBox_numWorkSpace";
+            this.textBox_numWorkSpace.Size = new System.Drawing.Size(64, 21);
+            this.textBox_numWorkSpace.TabIndex = 6;
+            this.textBox_numWorkSpace.Text = "1";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(42, 160);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(175, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "BUtton_Pre";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button_PreWorkSpace);
+            // 
+            // button_Pre
+            // 
+            this.button_Pre.Location = new System.Drawing.Point(39, 131);
+            this.button_Pre.Name = "button_Pre";
+            this.button_Pre.Size = new System.Drawing.Size(175, 23);
+            this.button_Pre.TabIndex = 1;
+            this.button_Pre.Text = "BUtton_Next";
+            this.button_Pre.UseVisualStyleBackColor = true;
+            this.button_Pre.Click += new System.EventHandler(this.Button_NextWorkSpace);
+            // 
             // button_ShotScreen
             // 
             this.button_ShotScreen.Location = new System.Drawing.Point(39, 87);
@@ -517,7 +548,8 @@
             this.ToolStripMenuItem_HoldScreenData,
             this.ToolStripMenuItem_ScreenSeen,
             this.ToolStripMenuItem_XiangSuToStr,
-            this.ToolStripMenuIteｍ_pirexHolder});
+            this.ToolStripMenuIteｍ_pirexHolder,
+            this.mCCrashToolStripMenuItem});
             this.辅助工具ToolStripMenuItem.Name = "辅助工具ToolStripMenuItem";
             this.辅助工具ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.辅助工具ToolStripMenuItem.Text = "辅助工具";
@@ -525,28 +557,28 @@
             // ToolStripMenuItem_HoldScreenData
             // 
             this.ToolStripMenuItem_HoldScreenData.Name = "ToolStripMenuItem_HoldScreenData";
-            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_HoldScreenData.Text = "取词交互-取词";
             this.ToolStripMenuItem_HoldScreenData.Click += new System.EventHandler(this.ToolStripMenuItem_HoldScreenData_Click);
             // 
             // ToolStripMenuItem_ScreenSeen
             // 
             this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
-            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
             this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
             // 
             // ToolStripMenuItem_XiangSuToStr
             // 
             this.ToolStripMenuItem_XiangSuToStr.Name = "ToolStripMenuItem_XiangSuToStr";
-            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
             this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
             // 
             // ToolStripMenuIteｍ_pirexHolder
             // 
             this.ToolStripMenuIteｍ_pirexHolder.Name = "ToolStripMenuIteｍ_pirexHolder";
-            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(177, 22);
+            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuIteｍ_pirexHolder.Text = "像素取值";
             this.ToolStripMenuIteｍ_pirexHolder.Click += new System.EventHandler(this.ToolStripMenuIteｍ_pirexHolder_Click);
             // 
@@ -786,15 +818,14 @@
             this.textBox_MinX.Size = new System.Drawing.Size(64, 21);
             this.textBox_MinX.TabIndex = 0;
             // 
-            // button_Pre
+            // checkBox_ISNotifyVoice
             // 
-            this.button_Pre.Location = new System.Drawing.Point(39, 131);
-            this.button_Pre.Name = "button_Pre";
-            this.button_Pre.Size = new System.Drawing.Size(175, 23);
-            this.button_Pre.TabIndex = 1;
-            this.button_Pre.Text = "BUtton_Next";
-            this.button_Pre.UseVisualStyleBackColor = true;
-            this.button_Pre.Click += new System.EventHandler(this.Button_NextWorkSpace);
+            this.checkBox_ISNotifyVoice.AutoSize = true;
+            this.checkBox_ISNotifyVoice.Location = new System.Drawing.Point(344, 22);
+            this.checkBox_ISNotifyVoice.Name = "checkBox_ISNotifyVoice";
+            this.checkBox_ISNotifyVoice.Size = new System.Drawing.Size(15, 14);
+            this.checkBox_ISNotifyVoice.TabIndex = 6;
+            this.checkBox_ISNotifyVoice.UseVisualStyleBackColor = true;
             // 
             // ibtws1
             // 
@@ -804,23 +835,12 @@
             this.ibtws1.TabIndex = 18;
             this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
             // 
-            // button2
+            // mCCrashToolStripMenuItem
             // 
-            this.button2.Location = new System.Drawing.Point(42, 160);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "BUtton_Pre";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button_PreWorkSpace);
-            // 
-            // textBox_numWorkSpace
-            // 
-            this.textBox_numWorkSpace.Location = new System.Drawing.Point(251, 152);
-            this.textBox_numWorkSpace.Name = "textBox_numWorkSpace";
-            this.textBox_numWorkSpace.Size = new System.Drawing.Size(64, 21);
-            this.textBox_numWorkSpace.TabIndex = 6;
-            this.textBox_numWorkSpace.Text = "1";
+            this.mCCrashToolStripMenuItem.Name = "mCCrashToolStripMenuItem";
+            this.mCCrashToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mCCrashToolStripMenuItem.Text = "MC崩溃提示";
+            this.mCCrashToolStripMenuItem.Click += new System.EventHandler(this.mCCrashToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -950,6 +970,8 @@
         private System.Windows.Forms.Button button_Pre;
         private System.Windows.Forms.TextBox textBox_numWorkSpace;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBox_ISNotifyVoice;
+        private System.Windows.Forms.ToolStripMenuItem mCCrashToolStripMenuItem;
     }
 }
 

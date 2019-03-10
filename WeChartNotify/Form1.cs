@@ -520,6 +520,8 @@ namespace WeChartNotify
 
                         //4.点击发送;
                         SendEnterOperater();
+
+                        CanDOVoiceCheck();
                     }
                     else
                     {
@@ -567,6 +569,8 @@ namespace WeChartNotify
 
                         //4.点击发送;
                         SendEnterOperater();
+
+                        CanDOVoiceCheck();
                     }
                 }
 
@@ -618,6 +622,8 @@ namespace WeChartNotify
 
                         //4.点击发送;
                         SendEnterOperater();
+
+                        CanDOVoiceCheck();
                     }
                     else
                     {
@@ -665,6 +671,8 @@ namespace WeChartNotify
 
                         //4.点击发送;
                         SendEnterOperater();
+
+                        CanDOVoiceCheck();
                     }
                 }
 
@@ -716,6 +724,8 @@ namespace WeChartNotify
 
                         //4.点击发送;
                         SendEnterOperater();
+
+                        CanDOVoiceCheck();
                     }
                     else
                     {
@@ -763,6 +773,8 @@ namespace WeChartNotify
 
                         //4.点击发送;
                         SendEnterOperater();
+
+                        CanDOVoiceCheck();
                     }
                 }
             }
@@ -771,6 +783,14 @@ namespace WeChartNotify
 
             }
 
+        }
+
+        private void CanDOVoiceCheck()
+        {
+            if(this.checkBox_ISNotifyVoice.Checked)
+            {
+                SendEnterVoiceOperater();
+            }
         }
 
         private void Time2_Click(object sender, EventArgs e)
@@ -1361,6 +1381,12 @@ namespace WeChartNotify
         {
             GiveToOtherToAction("+", 1);
 
+        }
+
+        private void mCCrashToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormMCCrash c = new FormMCCrash();
+            c.Show();
         }
     }
 }

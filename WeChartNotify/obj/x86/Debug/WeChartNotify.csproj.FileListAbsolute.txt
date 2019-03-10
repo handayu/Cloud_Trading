@@ -46,3 +46,4 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChart
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\bin\x86\Debug\Newtonsoft.Json.dll
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChartNotify.csprojAssemblyReference.cache
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChartNotify.FormSymbolInspireMonthNotify.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\x86\Debug\WeChartNotify.FormMCCrash.resources
