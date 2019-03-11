@@ -77,3 +77,9 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNoti
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.exe
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.pdb
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormRealComputerInfo.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormMCCrash.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormPixelCheck.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormSlideRecorde.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormSymbolInspireMonthNotify.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.WallStreetEventDriveForm.resources

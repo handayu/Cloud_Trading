@@ -86,17 +86,6 @@ namespace WeChartNotify
         }
 
         /// <summary>
-        /// 发起下一条指令事件
-        /// </summary>
-        private void RaiseNextCommandLineEvent()
-        {
-            if (EventCanNextCommandLine != null)
-            {
-                EventCanNextCommandLine();
-            }
-        }
-
-        /// <summary>
         /// 析构函数
         /// </summary>
         ~MCDataLooper()

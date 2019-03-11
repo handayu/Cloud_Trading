@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,10 +57,19 @@ namespace WeChartNotify
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(!File.Exists(this.textBox_Path.Text))
+            {
+                MessageBox.Show("存OutPut数据的文件路径为空,请输入路径.");
+                return;
+            }
+            
             if (m_looper != null)
             {
                 m_looper.EventReceiveOutPutData += M_looper_EventReceiveOutPutData; ;
                 m_looper.Start();
+
+                this.button_Start.Enabled = false;
+                this.button_Start.ForeColor = Color.Red;
             }
             else
             {
@@ -70,7 +80,25 @@ namespace WeChartNotify
 
         private void M_looper_EventReceiveOutPutData(string data)
         {
-            
+            //添加到appendText
+            if(this.InvokeRequired)
+            {
+                this.BeginInvoke(new Action<string>(M_looper_EventReceiveOutPutData), data);
+                return;
+            }
+
+            this.richTextBox1.AppendText(data);
+
+            //data封送到txt中保存
+            Write(this.textBox_Path.Text, data);
+        }
+
+        private void Write(string path, string data)
+        {
+            using (StreamWriter sw = new StreamWriter(path, true))
+            {
+                sw.WriteLine(data);
+            }
         }
     }
 }

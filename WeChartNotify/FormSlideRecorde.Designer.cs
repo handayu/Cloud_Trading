@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.textBox_timer = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_Start = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button_GetOutPutContent = new System.Windows.Forms.Button();
             this.button_SendNullStr = new System.Windows.Forms.Button();
             this.textBox_OutputHandle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox_Path = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,22 +50,22 @@
             this.textBox_timer.TabIndex = 10;
             this.textBox_timer.Text = "8000";
             // 
-            // button1
+            // button_Start
             // 
-            this.button1.Location = new System.Drawing.Point(242, 87);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "启动定时器开始";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_Start.Location = new System.Drawing.Point(242, 87);
+            this.button_Start.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Start.Name = "button_Start";
+            this.button_Start.Size = new System.Drawing.Size(134, 23);
+            this.button_Start.TabIndex = 9;
+            this.button_Start.Text = "启动定时器开始";
+            this.button_Start.UseVisualStyleBackColor = true;
+            this.button_Start.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(403, 20);
+            this.richTextBox1.Location = new System.Drawing.Point(403, 62);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(385, 90);
+            this.richTextBox1.Size = new System.Drawing.Size(385, 48);
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
             // 
@@ -110,8 +112,10 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox2.Controls.Add(this.textBox_Path);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.textBox_timer);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.button_Start);
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Controls.Add(this.button_GetOutPutContent);
             this.groupBox2.Controls.Add(this.button_SendNullStr);
@@ -127,6 +131,24 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "MultiCharts-公式编辑器设置";
+            // 
+            // textBox_Path
+            // 
+            this.textBox_Path.Location = new System.Drawing.Point(335, 18);
+            this.textBox_Path.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_Path.Name = "textBox_Path";
+            this.textBox_Path.Size = new System.Drawing.Size(453, 21);
+            this.textBox_Path.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(212, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(107, 12);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "写入Record的路径:";
             // 
             // FormSlideRecorde
             // 
@@ -145,12 +167,14 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox_timer;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button_Start;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button_GetOutPutContent;
         private System.Windows.Forms.Button button_SendNullStr;
         private System.Windows.Forms.TextBox textBox_OutputHandle;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox textBox_Path;
+        private System.Windows.Forms.Label label1;
     }
 }

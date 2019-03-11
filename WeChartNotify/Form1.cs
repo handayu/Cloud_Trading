@@ -1388,5 +1388,11 @@ namespace WeChartNotify
             FormMCCrash c = new FormMCCrash();
             c.Show();
         }
+
+        private void mCOutPutHookerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSlideRecorde r = new FormSlideRecorde();
+            r.Show();
+        }
     }
 }

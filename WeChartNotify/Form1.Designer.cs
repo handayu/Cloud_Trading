@@ -58,6 +58,7 @@
             this.textBox_PATH = new System.Windows.Forms.TextBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.checkBox_ISNotifyVoice = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button_TestVoiceEnter = new System.Windows.Forms.Button();
             this.textBox_VoiceY = new System.Windows.Forms.TextBox();
@@ -79,6 +80,7 @@
             this.ToolStripMenuItem_ScreenSeen = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_XiangSuToStr = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuIteｍ_pirexHolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mCCrashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_realInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_EventDrive = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,9 +107,8 @@
             this.textBox_MinY = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.textBox_MinX = new System.Windows.Forms.TextBox();
-            this.checkBox_ISNotifyVoice = new System.Windows.Forms.CheckBox();
             this.ibtws1 = new WeChartNotify.IBTWS();
-            this.mCCrashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mCOutPutHookerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.EA_TEXT_SINGLE_INFO.SuspendLayout();
@@ -389,6 +390,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Button_VoiceTest";
             // 
+            // checkBox_ISNotifyVoice
+            // 
+            this.checkBox_ISNotifyVoice.AutoSize = true;
+            this.checkBox_ISNotifyVoice.Location = new System.Drawing.Point(344, 22);
+            this.checkBox_ISNotifyVoice.Name = "checkBox_ISNotifyVoice";
+            this.checkBox_ISNotifyVoice.Size = new System.Drawing.Size(15, 14);
+            this.checkBox_ISNotifyVoice.TabIndex = 6;
+            this.checkBox_ISNotifyVoice.UseVisualStyleBackColor = true;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -549,7 +559,8 @@
             this.ToolStripMenuItem_ScreenSeen,
             this.ToolStripMenuItem_XiangSuToStr,
             this.ToolStripMenuIteｍ_pirexHolder,
-            this.mCCrashToolStripMenuItem});
+            this.mCCrashToolStripMenuItem,
+            this.mCOutPutHookerToolStripMenuItem});
             this.辅助工具ToolStripMenuItem.Name = "辅助工具ToolStripMenuItem";
             this.辅助工具ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.辅助工具ToolStripMenuItem.Text = "辅助工具";
@@ -557,30 +568,37 @@
             // ToolStripMenuItem_HoldScreenData
             // 
             this.ToolStripMenuItem_HoldScreenData.Name = "ToolStripMenuItem_HoldScreenData";
-            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(277, 22);
             this.ToolStripMenuItem_HoldScreenData.Text = "取词交互-取词";
             this.ToolStripMenuItem_HoldScreenData.Click += new System.EventHandler(this.ToolStripMenuItem_HoldScreenData_Click);
             // 
             // ToolStripMenuItem_ScreenSeen
             // 
             this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
-            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(277, 22);
             this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
             this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
             // 
             // ToolStripMenuItem_XiangSuToStr
             // 
             this.ToolStripMenuItem_XiangSuToStr.Name = "ToolStripMenuItem_XiangSuToStr";
-            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(277, 22);
             this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
             this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
             // 
             // ToolStripMenuIteｍ_pirexHolder
             // 
             this.ToolStripMenuIteｍ_pirexHolder.Name = "ToolStripMenuIteｍ_pirexHolder";
-            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(277, 22);
             this.ToolStripMenuIteｍ_pirexHolder.Text = "像素取值";
             this.ToolStripMenuIteｍ_pirexHolder.Click += new System.EventHandler(this.ToolStripMenuIteｍ_pirexHolder_Click);
+            // 
+            // mCCrashToolStripMenuItem
+            // 
+            this.mCCrashToolStripMenuItem.Name = "mCCrashToolStripMenuItem";
+            this.mCCrashToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
+            this.mCCrashToolStripMenuItem.Text = "MC崩溃提示";
+            this.mCCrashToolStripMenuItem.Click += new System.EventHandler(this.mCCrashToolStripMenuItem_Click);
             // 
             // 任务管理器ToolStripMenuItem
             // 
@@ -818,15 +836,6 @@
             this.textBox_MinX.Size = new System.Drawing.Size(64, 21);
             this.textBox_MinX.TabIndex = 0;
             // 
-            // checkBox_ISNotifyVoice
-            // 
-            this.checkBox_ISNotifyVoice.AutoSize = true;
-            this.checkBox_ISNotifyVoice.Location = new System.Drawing.Point(344, 22);
-            this.checkBox_ISNotifyVoice.Name = "checkBox_ISNotifyVoice";
-            this.checkBox_ISNotifyVoice.Size = new System.Drawing.Size(15, 14);
-            this.checkBox_ISNotifyVoice.TabIndex = 6;
-            this.checkBox_ISNotifyVoice.UseVisualStyleBackColor = true;
-            // 
             // ibtws1
             // 
             this.ibtws1.Location = new System.Drawing.Point(741, 45);
@@ -835,12 +844,12 @@
             this.ibtws1.TabIndex = 18;
             this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
             // 
-            // mCCrashToolStripMenuItem
+            // mCOutPutHookerToolStripMenuItem
             // 
-            this.mCCrashToolStripMenuItem.Name = "mCCrashToolStripMenuItem";
-            this.mCCrashToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.mCCrashToolStripMenuItem.Text = "MC崩溃提示";
-            this.mCCrashToolStripMenuItem.Click += new System.EventHandler(this.mCCrashToolStripMenuItem_Click);
+            this.mCOutPutHookerToolStripMenuItem.Name = "mCOutPutHookerToolStripMenuItem";
+            this.mCOutPutHookerToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
+            this.mCOutPutHookerToolStripMenuItem.Text = "MC-输出窗口抓捕器(追踪滑点等数据)";
+            this.mCOutPutHookerToolStripMenuItem.Click += new System.EventHandler(this.mCOutPutHookerToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -972,6 +981,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox_ISNotifyVoice;
         private System.Windows.Forms.ToolStripMenuItem mCCrashToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mCOutPutHookerToolStripMenuItem;
     }
 }
 

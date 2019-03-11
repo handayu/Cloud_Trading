@@ -8,9 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>WeChartNotify</RootNamespace>
     <AssemblyName>WeChartNotify</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -193,6 +194,12 @@
     <Compile Include="FormShootPictureHoldString.Designer.cs">
       <DependentUpon>FormShootPictureHoldString.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormSlideRecorde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSlideRecorde.Designer.cs">
+      <DependentUpon>FormSlideRecorde.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSymbolInspireMonthNotify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +221,8 @@
     <Compile Include="WallStreetEventDriveForm.Designer.cs">
       <DependentUpon>WallStreetEventDriveForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WindowsHooks\MCDataLooper.cs" />
+    <Compile Include="WindowsHooks\McOutPutWndHooker.cs" />
     <Compile Include="WindowsHooks\WindowsHooker.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -238,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormShootPictureHoldString.resx">
       <DependentUpon>FormShootPictureHoldString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSlideRecorde.resx">
+      <DependentUpon>FormSlideRecorde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSymbolInspireMonthNotify.resx">
       <DependentUpon>FormSymbolInspireMonthNotify.cs</DependentUpon>
