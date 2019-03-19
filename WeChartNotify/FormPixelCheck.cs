@@ -104,6 +104,10 @@ namespace WeChartNotify
                     //Send MainForm Notify 
                     (m_otherForm as Form1).GiveToOtherToAction();
                     System.Threading.Thread.Sleep(3000);
+
+                    m_startRgb = rgb;
+
+                    this.textBox_TargetRGB.Text = this.textBox_NowRgb.Text;
                 }
             }
 
@@ -137,6 +141,20 @@ namespace WeChartNotify
                 {
                     this.textBox_SETX.Text = Control.MousePosition.X.ToString();
                     this.textBox_SETY.Text = Control.MousePosition.Y.ToString();
+
+                    int x = int.MinValue;
+                    int y = int.MinValue;
+
+                    int.TryParse(this.textBox_SETX.Text, out x);
+                    int.TryParse(this.textBox_SETY.Text, out y);
+
+                    Color c = GetColor(x, y);
+
+                    int rgb = c.ToArgb();
+                    this.textBox_TargetRGB.Text = rgb.ToString();
+
+                    m_startRgb = rgb;
+
                     m_spreadTime = 0;
                     return;
                 }
@@ -161,6 +179,11 @@ namespace WeChartNotify
         {
             this.textBox_SETX.Clear();
             this.textBox_SETY.Clear();
+
+            this.textBox_NowRgb.Text = "";
+            this.textBox_TargetRGB.Text = "";
+
+            m_startRgb = 0;
         }
 
         private void button_Stop_Click(object sender, EventArgs e)
