@@ -45,8 +45,6 @@
             this.button_Clear = new System.Windows.Forms.Button();
             this.button_Start = new System.Windows.Forms.Button();
             this.button_Stop = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox_NowRgb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // timer1
@@ -181,29 +179,11 @@
             this.button_Stop.UseVisualStyleBackColor = true;
             this.button_Stop.Click += new System.EventHandler(this.button_Stop_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(377, 116);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 12);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Now--RGB VALUE:";
-            // 
-            // textBox_NowRgb
-            // 
-            this.textBox_NowRgb.Location = new System.Drawing.Point(502, 113);
-            this.textBox_NowRgb.Name = "textBox_NowRgb";
-            this.textBox_NowRgb.Size = new System.Drawing.Size(64, 21);
-            this.textBox_NowRgb.TabIndex = 23;
-            // 
             // FormPixelCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 350);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox_NowRgb);
             this.Controls.Add(this.button_Stop);
             this.Controls.Add(this.button_Start);
             this.Controls.Add(this.button_AutoSetingXY);
@@ -243,7 +223,5 @@
         private System.Windows.Forms.Button button_Clear;
         private System.Windows.Forms.Button button_Start;
         private System.Windows.Forms.Button button_Stop;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox_NowRgb;
     }
 }

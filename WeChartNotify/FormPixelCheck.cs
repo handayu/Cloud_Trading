@@ -57,7 +57,7 @@ namespace WeChartNotify
             return Color.FromArgb(r, g, b);
         }
 
-        private int m_startRgb = 0;
+        private string m_startRgbText = "";
         private void Timer_GetPirex(object sender, EventArgs e)
         {
             this.timer1.Stop();
@@ -74,41 +74,25 @@ namespace WeChartNotify
                 return;
             }
 
-            if (m_startRgb == 0)
+
+            int.TryParse(this.textBox_SETX.Text, out x);
+            int.TryParse(this.textBox_SETY.Text, out y);
+
+            Color c = GetColor(x, y);
+
+            int rgb = c.ToArgb();
+            this.textBox_TargetRGB.Text = rgb.ToString();
+
+            //如果和前值像素不一样(注意不要发动态图，因为像素值一直在切换)
+            if(this.textBox_TargetRGB.Text != m_startRgbText)
             {
-                System.Threading.Thread.Sleep(3000);
+                //发送
+                (m_otherForm as Form1).GiveToOtherToAction();
 
-                int.TryParse(this.textBox_SETX.Text, out x);
-                int.TryParse(this.textBox_SETY.Text, out y);
-
-                Color c = GetColor(x, y);
-
-                int rgb = c.ToArgb();
-                this.textBox_TargetRGB.Text = rgb.ToString();
-
-                m_startRgb = rgb;
-            }
-            else
-            {
-
-                int.TryParse(this.textBox_SETX.Text, out x);
-                int.TryParse(this.textBox_SETY.Text, out y);
-
-                Color c = GetColor(x, y);
-
-                int rgb = c.ToArgb();
-                this.textBox_NowRgb.Text = rgb.ToString();
-
-                if (rgb != m_startRgb)
-                {
-                    //Send MainForm Notify 
-                    (m_otherForm as Form1).GiveToOtherToAction();
-                    System.Threading.Thread.Sleep(3000);
-
-                    m_startRgb = rgb;
-
-                    this.textBox_TargetRGB.Text = this.textBox_NowRgb.Text;
-                }
+                //更新这个值
+                Color cl = GetColor(x, y);
+                int rgbl = c.ToArgb();
+                m_startRgbText = rgbl.ToString();
             }
 
             this.timer1.Start();
@@ -153,8 +137,6 @@ namespace WeChartNotify
                     int rgb = c.ToArgb();
                     this.textBox_TargetRGB.Text = rgb.ToString();
 
-                    m_startRgb = rgb;
-
                     m_spreadTime = 0;
                     return;
                 }
@@ -180,10 +162,8 @@ namespace WeChartNotify
             this.textBox_SETX.Clear();
             this.textBox_SETY.Clear();
 
-            this.textBox_NowRgb.Text = "";
             this.textBox_TargetRGB.Text = "";
 
-            m_startRgb = 0;
         }
 
         private void button_Stop_Click(object sender, EventArgs e)
