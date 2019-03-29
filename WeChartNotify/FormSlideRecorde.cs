@@ -15,10 +15,18 @@ namespace WeChartNotify
     {
 
         private MCDataLooper m_looper = null;
+        private Form m_otherForm = null;
 
         public FormSlideRecorde()
         {
             InitializeComponent();
+        }
+
+        public FormSlideRecorde(Form f)
+        {
+            InitializeComponent();
+
+            m_otherForm = f;
         }
 
         private void button_SendNullStr_Click(object sender, EventArgs e)
@@ -27,13 +35,9 @@ namespace WeChartNotify
             McOutPutWndHooker hooker = new McOutPutWndHooker(handle);
             hooker.SendMessageToOutPutWnd("");
 
-            int timer = int.MinValue;
-            int.TryParse(this.textBox_timer.Text, out timer);
-
-
             if (m_looper == null)
             {
-                m_looper = new MCDataLooper(handle, timer);
+                m_looper = new MCDataLooper(handle);
             }
         }
 
@@ -43,62 +47,70 @@ namespace WeChartNotify
             McOutPutWndHooker hooker = new McOutPutWndHooker(handle);
             string result = hooker.SendMessageToHoldOutPutMessage();
 
-            int timer = int.MinValue;
-            int.TryParse(this.textBox_timer.Text, out timer);
-
-
             if (m_looper == null)
             {
-                m_looper = new MCDataLooper(handle, timer);
+                m_looper = new MCDataLooper(handle);
             }
 
+            this.richTextBox1.Clear();
             this.richTextBox1.AppendText("\n" + result);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(!File.Exists(this.textBox_Path.Text))
-            {
-                MessageBox.Show("存OutPut数据的文件路径为空,请输入路径.");
-                return;
-            }
-            
-            if (m_looper != null)
-            {
-                m_looper.EventReceiveOutPutData += M_looper_EventReceiveOutPutData; ;
-                m_looper.Start();
+            this.timer_MCOutput.Start();
+            this.button_Start.Enabled = false;
+            this.button_Start.ForeColor = Color.Aqua;
 
-                this.button_Start.Enabled = false;
-                this.button_Start.ForeColor = Color.Red;
-            }
-            else
-            {
-                MessageBox.Show("M_Loper为null,请先测试发送完成邦定,生成m_looper对象.");
-                return;
-            }
+            this.button_Stop.Enabled = true;
+            this.button_Stop.ForeColor = Color.Red;
         }
 
-        private void M_looper_EventReceiveOutPutData(string data)
+        private void Button_StopClick(object sender, EventArgs e)
         {
-            //添加到appendText
+            this.timer_MCOutput.Stop();
+
+            this.button_Start.Enabled = true;
+            this.button_Start.ForeColor = Color.Red;
+
+            this.button_Stop.Enabled = false;
+            this.button_Stop.ForeColor = Color.Aqua;
+        }
+
+        private void AppendTextRich(string data)
+        {
             if(this.InvokeRequired)
             {
-                this.BeginInvoke(new Action<string>(M_looper_EventReceiveOutPutData), data);
-                return;
+                this.BeginInvoke(new Action<string>(AppendTextRich),data);
             }
 
-            this.richTextBox1.AppendText(data);
-
-            //data封送到txt中保存
-            Write(this.textBox_Path.Text, data);
+            this.richTextBox1.AppendText("\n" + data);
         }
 
-        private void Write(string path, string data)
+        private void TimerEvent_MCData(object sender, EventArgs e)
         {
-            using (StreamWriter sw = new StreamWriter(path, true))
-            {
-                sw.WriteLine(data);
-            }
+            if (m_looper == null) return;
+            string strMc = m_looper.GetMCData();
+            if (strMc == "") return;
+            //添加到appendBox，并一起发送到QQ
+            AppendTextRich(strMc);
+
+            //发送;
+            (m_otherForm as Form1).GiveToMCOutPutToAction(strMc);
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+            string path = System.Windows.Forms.Application.StartupPath + "\\config.ini";
+            IniOperationClass c = new IniOperationClass(path);
+            this.textBox_OutputHandle.Text = c.IniReadValue("MCHandle", "Handle");
+        }
+
+        private void Form_Closed(object sender, FormClosedEventArgs e)
+        {
+            string path = System.Windows.Forms.Application.StartupPath + "\\config.ini";
+            IniOperationClass c = new IniOperationClass(path);
+            c.IniWriteValue("MCHandle", "Handle", this.textBox_OutputHandle.Text);
         }
     }
 }

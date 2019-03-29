@@ -42,6 +42,24 @@ namespace WeChartNotify
 
             this.textBox_PATH.Text = ConfigurationManager.AppSettings["path"];
             this.label_ClockNotifyInfo.Text = "文本监控停止中......";
+
+            InitTextBox();
+        }
+
+        private void InitTextBox()
+        {
+            string path = System.Windows.Forms.Application.StartupPath + "\\config.ini";
+            IniOperationClass c = new IniOperationClass(path);
+            this.textBox_maxX.Text = c.IniReadValue("PointXY", "ButtonMaxTestX");
+            this.textBox_MaxY.Text  = c.IniReadValue("PointXY", "ButtonMaxTestY");
+            this.textBox_setX.Text  = c.IniReadValue("PointXY", "ContentInputX");
+            this.textBox_setY.Text  = c.IniReadValue("PointXY", "ContentInputY");
+            this.textBox_enterX.Text  = c.IniReadValue("PointXY", "ButtonEnterX");
+            this.textBox_enterY.Text  = c.IniReadValue("PointXY", "ButtonEnterY");
+            this.textBox_VoiceX.Text  = c.IniReadValue("PointXY", "ButtonVoiceX");
+            this.textBox_VoiceY.Text  = c.IniReadValue("PointXY", "ButtonVoiceY");
+            this.textBox_MinX.Text  = c.IniReadValue("PointXY", "ButtonMinTestX");
+            this.textBox_MinY.Text  = c.IniReadValue("PointXY", "ButtonMinTestY");
         }
 
         public enum MouseEventFlags
@@ -464,6 +482,57 @@ namespace WeChartNotify
             //4.-------------------------------
             System.Threading.Thread.Sleep(500);
             SendEnterOperater();
+        }
+
+        /// <summary>
+        /// 给mc输出然后发送到QQ的
+        /// </summary>
+        public void GiveToMCOutPutToAction(string mcOutPutData)
+        {
+            string c = mcOutPutData;
+
+            Clipboard.Clear();
+            Clipboard.SetDataObject(c);
+
+            //2--------------------------------------------------
+            int x = int.MinValue;
+            int y = int.MinValue;
+
+            if (this.textBox_setX.Text == "")
+            {
+                MessageBox.Show("请输入要设置焦点的X的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_setX.Text, out x);
+            }
+
+            if (this.textBox_setY.Text == "")
+            {
+                MessageBox.Show("请输入要设置焦点的y的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_setY.Text, out y);
+            }
+
+            //用屏幕取点工具可以得到坐标
+            SetCursorPos(x, y);
+
+            //点击获得输入的焦点
+            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), 0, 0, 0, IntPtr.Zero);
+            System.Threading.Thread.Sleep(200);
+            //3.-------------------------------
+            SendKeys.SendWait("^{V}");
+
+            //4.-------------------------------
+            System.Threading.Thread.Sleep(500);
+            SendEnterOperater();
+            System.Threading.Thread.Sleep(500);
+            CanDOVoiceCheck();
+
         }
 
         private void SendMcStatus()
@@ -1391,8 +1460,24 @@ namespace WeChartNotify
 
         private void mCOutPutHookerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormSlideRecorde r = new FormSlideRecorde();
+            FormSlideRecorde r = new FormSlideRecorde(this);
             r.Show();
+        }
+
+        private void Form_Closed(object sender, FormClosedEventArgs e)
+        {
+            string path = System.Windows.Forms.Application.StartupPath + "\\config.ini";
+            IniOperationClass c = new IniOperationClass(path);
+            c.IniWriteValue("PointXY", "ButtonMaxTestX", this.textBox_maxX.Text);
+            c.IniWriteValue("PointXY", "ButtonMaxTestY", this.textBox_MaxY.Text);
+            c.IniWriteValue("PointXY", "ContentInputX", this.textBox_setX.Text);
+            c.IniWriteValue("PointXY", "ContentInputY", this.textBox_setY.Text);
+            c.IniWriteValue("PointXY", "ButtonEnterX", this.textBox_enterX.Text);
+            c.IniWriteValue("PointXY", "ButtonEnterY", this.textBox_enterY.Text);
+            c.IniWriteValue("PointXY", "ButtonVoiceX", this.textBox_VoiceX.Text);
+            c.IniWriteValue("PointXY", "ButtonVoiceY", this.textBox_VoiceY.Text);
+            c.IniWriteValue("PointXY", "ButtonMinTestX", this.textBox_MinX.Text);
+            c.IniWriteValue("PointXY", "ButtonMinTestY", this.textBox_MinY.Text);
         }
     }
 }

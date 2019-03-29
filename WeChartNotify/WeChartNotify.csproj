@@ -212,6 +212,7 @@
     <Compile Include="IBTWS.AutoSetterControl.Designer.cs">
       <DependentUpon>IBTWS.AutoSetterControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="IniOperationClass.cs" />
     <Compile Include="MCData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

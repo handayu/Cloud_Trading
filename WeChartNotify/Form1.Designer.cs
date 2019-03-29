@@ -81,6 +81,7 @@
             this.ToolStripMenuItem_XiangSuToStr = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuIteｍ_pirexHolder = new System.Windows.Forms.ToolStripMenuItem();
             this.mCCrashToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mCOutPutHookerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.任务管理器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_realInfo = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem_EventDrive = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,7 +109,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.textBox_MinX = new System.Windows.Forms.TextBox();
             this.ibtws1 = new WeChartNotify.IBTWS();
-            this.mCOutPutHookerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.EA_TEXT_SINGLE_INFO.SuspendLayout();
@@ -600,6 +600,13 @@
             this.mCCrashToolStripMenuItem.Text = "MC崩溃提示";
             this.mCCrashToolStripMenuItem.Click += new System.EventHandler(this.mCCrashToolStripMenuItem_Click);
             // 
+            // mCOutPutHookerToolStripMenuItem
+            // 
+            this.mCOutPutHookerToolStripMenuItem.Name = "mCOutPutHookerToolStripMenuItem";
+            this.mCOutPutHookerToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
+            this.mCOutPutHookerToolStripMenuItem.Text = "MC-输出窗口抓捕器(追踪滑点等数据)";
+            this.mCOutPutHookerToolStripMenuItem.Click += new System.EventHandler(this.mCOutPutHookerToolStripMenuItem_Click);
+            // 
             // 任务管理器ToolStripMenuItem
             // 
             this.任务管理器ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -844,13 +851,6 @@
             this.ibtws1.TabIndex = 18;
             this.ibtws1.Load += new System.EventHandler(this.ibtws1_Load);
             // 
-            // mCOutPutHookerToolStripMenuItem
-            // 
-            this.mCOutPutHookerToolStripMenuItem.Name = "mCOutPutHookerToolStripMenuItem";
-            this.mCOutPutHookerToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
-            this.mCOutPutHookerToolStripMenuItem.Text = "MC-输出窗口抓捕器(追踪滑点等数据)";
-            this.mCOutPutHookerToolStripMenuItem.Click += new System.EventHandler(this.mCOutPutHookerToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -874,6 +874,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "服务器软件-策略信号微信预警管理终端";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form_Closed);
             this.Load += new System.EventHandler(this.Form_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Mouse_Click);
             this.groupBox1.ResumeLayout(false);
