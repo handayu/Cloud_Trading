@@ -535,6 +535,56 @@ namespace WeChartNotify
 
         }
 
+        /// <summary>
+        /// 给mc换月信息抓取输出然后发送到微信和QQ的
+        /// </summary>
+        public void GiveToHOTMonthToAction(string hotMonth)
+        {
+            string c = hotMonth;
+
+            Clipboard.Clear();
+            Clipboard.SetDataObject(c);
+
+            //2--------------------------------------------------
+            int x = int.MinValue;
+            int y = int.MinValue;
+
+            if (this.textBox_setX.Text == "")
+            {
+                MessageBox.Show("请输入要设置焦点的X的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_setX.Text, out x);
+            }
+
+            if (this.textBox_setY.Text == "")
+            {
+                MessageBox.Show("请输入要设置焦点的y的Int坐标！");
+                return;
+            }
+            else
+            {
+                int.TryParse(this.textBox_setY.Text, out y);
+            }
+
+            //用屏幕取点工具可以得到坐标
+            SetCursorPos(x, y);
+
+            //点击获得输入的焦点
+            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), 0, 0, 0, IntPtr.Zero);
+            System.Threading.Thread.Sleep(200);
+            //3.-------------------------------
+            SendKeys.SendWait("^{V}");
+
+            //4.-------------------------------
+            System.Threading.Thread.Sleep(500);
+            SendEnterOperater();
+            //System.Threading.Thread.Sleep(500);
+            //CanDOVoiceCheck();
+        }
+
         private void SendMcStatus()
         {
             try
@@ -1436,7 +1486,7 @@ namespace WeChartNotify
 
         private void ToolStripMenuItem_MonthInspire_Click(object sender, EventArgs e)
         {
-            FormSymbolInspireMonthNotify holder = new FormSymbolInspireMonthNotify();
+            FormSymbolInspireMonthNotify holder = new FormSymbolInspireMonthNotify(this);
             holder.Show();
         }
 
