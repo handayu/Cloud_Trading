@@ -262,6 +262,44 @@ namespace WeChartNotify
         }
 
         /// <summary>
+        /// 给给服务器打电话截获到语音窗口之后的截图监控信息
+        /// </summary>
+        public void GiveWeChartAudioAction()
+        {
+            if (CheckProcessIsOk())
+            {
+                string content = "服务器终端实时状态:" + "\n" +
+                        "1.Multicharts 进程运行良好..." + "\n" +
+                        "2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                        "3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n";
+
+                UseClipBoardWenziSend(content);
+
+                //3.完成截图;
+                SendShotScreenOperater();
+
+                //4.点击发送;
+                SendEnterOperater();
+            }
+            else
+            {
+                string content = "服务器终端实时状态:" + "\n" +
+                        "1.Multicharts 进程运行异常,请立即检查..." + "\n" +
+                        "2.内存使用率为: " + ComputerInfomation.get_StorageInfo().dwMemoryLoad.ToString() + "\n" +
+                        "3.CPU使用率为: " + ComputerInfomation.getCPUUsage().ToString() + "\n";
+
+                UseClipBoardWenziSend(content);
+
+                //3.完成截图;
+                SendShotScreenOperater();
+
+                //4.点击发送;
+                SendEnterOperater();
+            }
+        }
+
+
+        /// <summary>
         /// 给像素识别或者图形识别了hi调用使用的外部接口
         /// </summary>
         public void GiveToOtherToAction()
@@ -1504,7 +1542,7 @@ namespace WeChartNotify
 
         private void mCCrashToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormMCCrash c = new FormMCCrash();
+            FormMCCrash c = new FormMCCrash(this);
             c.Show();
         }
 

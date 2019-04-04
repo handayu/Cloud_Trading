@@ -597,7 +597,7 @@
             // 
             this.mCCrashToolStripMenuItem.Name = "mCCrashToolStripMenuItem";
             this.mCCrashToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
-            this.mCCrashToolStripMenuItem.Text = "MC崩溃提示";
+            this.mCCrashToolStripMenuItem.Text = "服务器语音交互观察实时情况";
             this.mCCrashToolStripMenuItem.Click += new System.EventHandler(this.mCCrashToolStripMenuItem_Click);
             // 
             // mCOutPutHookerToolStripMenuItem

@@ -22,6 +22,20 @@ namespace WeChartNotify
         static extern IntPtr GetDesktopWindow();
 
         /// <summary>
+        /// 获取窗口类名
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="lpString"></param>
+        /// <param name="nMaxCont"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll", EntryPoint = "GetClassName")]
+        static extern int GetClassName(
+                                int hWnd,
+                                StringBuilder lpString,
+                                int nMaxCont
+                                );
+
+        /// <summary>
         /// 该函数返回与指定窗口有特定关系（如Z序或所有者）的窗口句柄。
         /// 函数原型：HWND GetWindow（HWND hWnd，UNIT nCmd）；
         /// </summary>
@@ -100,17 +114,22 @@ namespace WeChartNotify
            GW_OWNER
            寻找窗口的所有者
         */
-        public FormMCCrash()
+
+        private Form m_otherForm = new Form();
+
+        public FormMCCrash(Form f)
         {
             InitializeComponent();
 
             this.Load += FormMCCrash_Load;
+
+            this.m_otherForm = f;
         }
 
         private void FormMCCrash_Load(object sender, EventArgs e)
         {
             List<string> numStrList = new List<string>();
-            this.richTextBox1.Clear();
+            this.richTextBox_AllWindows.Clear();
             //1、获取桌面窗口的句柄
             IntPtr desktopPtr = GetDesktopWindow();
             //2、获得一个子窗口（这通常是一个顶层窗口，当前活动的窗口）
@@ -120,7 +139,7 @@ namespace WeChartNotify
             {
                 //4、继续获取下一个子窗口
                 winPtr = GetWindow(winPtr, GetWindowCmd.GW_HWNDNEXT);
-                this.richTextBox1.AppendText("\n" + winPtr.ToString() + "\n");
+                this.richTextBox_AllWindows.AppendText("\n" + winPtr.ToString() + "\n");
                 numStrList.Add(winPtr.ToString());
                 this.label_Num.Text = numStrList.Count.ToString();
             }
@@ -128,8 +147,12 @@ namespace WeChartNotify
 
         private void TimeCheckWindowsNum_Event(object sender, EventArgs e)
         {
+            this.timer1.Stop();
+
             List<string> numStrList = new List<string>();
-            this.richTextBox1.Clear();
+            this.richTextBox_AllWindows.Clear();
+            this.richTextBox_WechartVdio.Clear();
+
             numStrList.Clear();
             //1、获取桌面窗口的句柄
             IntPtr desktopPtr = GetDesktopWindow();
@@ -140,10 +163,24 @@ namespace WeChartNotify
             {
                 //4、继续获取下一个子窗口
                 winPtr = GetWindow(winPtr, GetWindowCmd.GW_HWNDNEXT);
-                this.richTextBox1.AppendText("\n" + winPtr.ToString() + "\n");
+
+                StringBuilder sb = new StringBuilder(256);
+                GetClassName((int)winPtr, sb, 256);
+
+                this.richTextBox_AllWindows.AppendText("\n" + winPtr.ToString() + "\n");
                 numStrList.Add(winPtr.ToString());
                 this.label_Num.Text = numStrList.Count.ToString();
+
+                //微信拨打语音的小窗口被动方的窗口类名，服务器捕捉到了，然后发送截图
+                if (sb.ToString() == "VoipTrayWnd")
+                {
+                    this.richTextBox_WechartVdio.AppendText("找到即时被邀请的语音窗口:" + "\n" + sb);
+
+                    (m_otherForm as Form1).GiveWeChartAudioAction();
+                }
             }
+
+            this.timer1.Start();
         }
     }
 }
