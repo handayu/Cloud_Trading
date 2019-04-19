@@ -45,24 +45,24 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox_SeriesLossNotify = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.timer_NotifySeriesLoss = new System.Windows.Forms.Timer(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox_SeriesLossNotify = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_Start
@@ -167,7 +167,6 @@
             // 
             // timer_MCOutput
             // 
-            this.timer_MCOutput.Enabled = true;
             this.timer_MCOutput.Interval = 1000;
             this.timer_MCOutput.Tick += new System.EventHandler(this.TimerEvent_MCData);
             // 
@@ -217,6 +216,14 @@
             this.panel1.Size = new System.Drawing.Size(192, 365);
             this.panel1.TabIndex = 19;
             // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(192, 30);
+            this.panel6.TabIndex = 16;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label3);
@@ -234,6 +241,25 @@
             this.panel2.Size = new System.Drawing.Size(649, 112);
             this.panel2.TabIndex = 20;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(440, 57);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 12);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "监控连续回撤次数:";
+            // 
+            // textBox_SeriesLossNotify
+            // 
+            this.textBox_SeriesLossNotify.Location = new System.Drawing.Point(441, 71);
+            this.textBox_SeriesLossNotify.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_SeriesLossNotify.Name = "textBox_SeriesLossNotify";
+            this.textBox_SeriesLossNotify.Size = new System.Drawing.Size(186, 21);
+            this.textBox_SeriesLossNotify.TabIndex = 16;
+            this.textBox_SeriesLossNotify.Text = "3";
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dataGridView1);
@@ -243,6 +269,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(445, 365);
             this.panel3.TabIndex = 21;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(445, 33);
+            this.panel5.TabIndex = 18;
             // 
             // panel4
             // 
@@ -283,47 +318,11 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(649, 371);
             this.tableLayoutPanel2.TabIndex = 21;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(445, 33);
-            this.panel5.TabIndex = 18;
-            // 
-            // panel6
-            // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(192, 30);
-            this.panel6.TabIndex = 16;
-            // 
             // timer_NotifySeriesLoss
             // 
             this.timer_NotifySeriesLoss.Enabled = true;
             this.timer_NotifySeriesLoss.Interval = 500;
             this.timer_NotifySeriesLoss.Tick += new System.EventHandler(this.timer_NotifySeriesLossEvent);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(440, 57);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 12);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "监控连续回撤次数:";
-            // 
-            // textBox_SeriesLossNotify
-            // 
-            this.textBox_SeriesLossNotify.Location = new System.Drawing.Point(441, 71);
-            this.textBox_SeriesLossNotify.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox_SeriesLossNotify.Name = "textBox_SeriesLossNotify";
-            this.textBox_SeriesLossNotify.Size = new System.Drawing.Size(186, 21);
-            this.textBox_SeriesLossNotify.TabIndex = 16;
-            this.textBox_SeriesLossNotify.Text = "3";
             // 
             // FormSlideRecorde
             // 
@@ -341,11 +340,11 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }

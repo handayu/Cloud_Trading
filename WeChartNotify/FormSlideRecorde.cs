@@ -55,6 +55,12 @@ namespace WeChartNotify
             this.timer_NotifySeriesLoss.Start();
 
             this.dataGridView1.DataSource = this.m_notifyBindList;
+
+            DataGridViewRowCollection rows = this.dataGridView1.Rows;
+            foreach (DataGridViewRow r in rows)
+            {
+                r.DefaultCellStyle.BackColor = Color.White;
+            }
         }
 
         private void button_SendNullStr_Click(object sender, EventArgs e)
@@ -120,6 +126,7 @@ namespace WeChartNotify
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.timer_MCOutput.Enabled = true;
             this.timer_MCOutput.Start();
             this.button_Start.Enabled = false;
             this.button_Start.ForeColor = Color.Aqua;
@@ -268,7 +275,6 @@ namespace WeChartNotify
         }
 
         //闪烁监控改变颜色
-        private bool IsChanged = false;
         private void timer_NotifySeriesLossEvent(object sender, EventArgs e)
         {
             DataGridViewRowCollection rows = this.dataGridView1.Rows;
@@ -287,18 +293,16 @@ namespace WeChartNotify
                 if (lossnum < notifyLossNum)
                 {
                     r.DefaultCellStyle.BackColor = Color.White;
-                    return;
+                    continue;
                 }
 
-                if (!IsChanged)
+                if (r.DefaultCellStyle.BackColor == Color.Red)
                 {
-                    r.DefaultCellStyle.BackColor = Color.Red;
-                    IsChanged = true;
+                    r.DefaultCellStyle.BackColor = Color.White;
                 }
                 else
                 {
-                    r.DefaultCellStyle.BackColor = Color.White;
-                    IsChanged = false;
+                    r.DefaultCellStyle.BackColor = Color.Red;
                 }
             }
         }
