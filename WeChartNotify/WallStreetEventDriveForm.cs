@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UseHttpHelper;
@@ -24,7 +25,7 @@ namespace WeChartNotify
             InitializeComponent();
             m_otherForm = f;
 
-            this.textBox_URL.Text = string.Format("https://api-prod.wallstreetcn.com/apiv1/content/lives?channel=commodity-channel%2Cbestanalyst-channel&client=pc&cursor={0}&limit=1&first_page=false&accept=live%2Cvip-live",int.MaxValue);
+            this.textBox_URL.Text = string.Format("https://wallstreetcn.com/live/commodity");
         }
 
 
@@ -136,6 +137,46 @@ namespace WeChartNotify
             public Data data { get; set; }
         }
 
+        public List<string> GetWallStreetHtlStr(string nurl)
+        {
+            string url = nurl;
+            string hr = GetData(url);
+            if (hr != null)
+            {
+
+                string htmlStr = hr;
+                string regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; //定义style的正则表达式 
+                string regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; //定义script的正则表达式 
+                string regEx_html = "<[^>]+>"; //定义HTML标签的正则表达式 
+                htmlStr = Regex.Replace(htmlStr, regEx_style, "");//删除css
+                htmlStr = Regex.Replace(htmlStr, regEx_script, "");//删除js
+                htmlStr = Regex.Replace(htmlStr, regEx_html, "-");//删除html标记
+                htmlStr = Regex.Replace(htmlStr, "\\s*|\t|\r|\n", "");//去除tab、空格、空行
+                htmlStr = htmlStr.Replace(" ", "");
+                htmlStr = htmlStr.Replace('"', ' ');//去除异常的引号" " "
+
+                List<string> ArrayListIns = Regex.Split(htmlStr, "----", RegexOptions.IgnoreCase).ToList();
+
+                //获取到网页原版本的Html之后，经过正则表达式处理之后，然后清理，清除多余的不需要的"",等字符，取到第一条最新的返回
+                List<string> ArrayNewList = new List<string>();
+                foreach (string str in ArrayListIns)
+                {
+                    if (str != "")
+                    {
+                        string newStr = str.Replace("-", " ").Trim();
+                        ArrayNewList.Add(newStr);
+                    }
+                }
+
+                return ArrayNewList;
+
+            }
+            else
+            {
+                return null;
+            }
+
+        }
 
         public Root GetWallStreetHtl(string nurl)
         {
@@ -144,6 +185,7 @@ namespace WeChartNotify
             string hr = GetData(url);
             if (hr != null)
             {
+
                 try
                 {
                     Root bi = Deserialize<Root>(hr);
@@ -189,60 +231,99 @@ namespace WeChartNotify
 
         private void button_Start_Click(object sender, EventArgs e)
         {
-            this.listView_Content.Items.Clear();
-
-            Root content = GetWallStreetHtl(this.textBox_URL.Text);
-
-            if (content == null || content.data == null || content.data.items == null) return;
-
-            List<ItemsItem> items = content.data.items;
-            foreach(ItemsItem it in items)
+            try
             {
-                this.listView_Content.Items.Add(it.content_text);
+                this.richTextBox1.Clear();
+
+                //Root content = GetWallStreetHtl(this.textBox_URL.Text);
+
+                //if (content == null || content.data == null || content.data.items == null) return;
+
+                //List<ItemsItem> items = content.data.items;
+                //foreach(ItemsItem it in items)
+                //{
+                //    this.listView_Content.Items.Add(it.content_text);
+                //}
+
+                List<string> aList = GetWallStreetHtlStr(this.textBox_URL.Text);
+                if (aList == null) return;
+                foreach (string sr in aList)
+                {
+                    this.richTextBox1.AppendText(sr + "\n");
+                }
+
+                //测试发送
+                if (aList != null && aList.Count > 0)
+                {
+                    int indexStart = 0;
+
+
+                    for (int i = 0; i < aList.Count; i++)
+                    {
+                        if (aList[i].Contains("联合制作"))
+                        {
+                            indexStart = i;
+                            break;
+                        }
+                    }
+
+                    string sendInfo = aList[indexStart + 1] + "\n" + aList[indexStart + 2];
+
+                    //(m_otherForm as Form1).GiveToWallStreetEventDriveToAction(sendInfo);
+                    m_startContent = sendInfo;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("获取信息发生异常,尝试检查获取的html和arraylist硬编码，因为华尔街见闻的改版：" + ex.Message);
+                return;
             }
 
-            //测试发送
-            if(items != null && items.Count > 0)
-            {
-                (m_otherForm as Form1).GiveToWallStreetEventDriveToAction(items[0].content_text);
-                m_startContent = items[0].content_text;
-            }
         }
 
         private void Loop_TickEvent(object sender, EventArgs e)
         {
-            Root content = GetWallStreetHtl(this.textBox_URL.Text);
-
-            if (content == null || content.data == null || content.data.items == null) return;
-
-            this.listView_Content.Items.Clear();
-
-            List<ItemsItem> items = content.data.items;
-            foreach (ItemsItem it in items)
+            try
             {
-                this.listView_Content.Items.Add(it.content_text);
-            }
+                this.richTextBox1.Clear();
 
-            if (items != null && items.Count > 0 && items[0].content_text.CompareTo(m_startContent) != 0)
+                List<string> aList = GetWallStreetHtlStr(this.textBox_URL.Text);
+                if (aList == null) return;
+                foreach (string sr in aList)
+                {
+                    this.richTextBox1.AppendText(sr + "\n");
+                }
+
+                if (aList != null && aList.Count > 0)
+                {
+                    int indexStart = 0;
+
+                    for (int i = 0; i < aList.Count; i++)
+                    {
+                        if (aList[i].Contains("联合制作"))
+                        {
+                            indexStart = i;
+                            break;
+                        }
+                    }
+
+                    string sendInfo = aList[indexStart + 1] + "\n" + aList[indexStart + 2];
+                    if (sendInfo.CompareTo(m_startContent) == 0) return;
+
+                    //(m_otherForm as Form1).GiveToWallStreetEventDriveToAction(sendInfo);
+                    m_startContent = sendInfo;
+                }
+            }
+            catch (Exception ex)
             {
-                (m_otherForm as Form1).GiveToWallStreetEventDriveToAction("7*24华尔街实时商品事件驱动信息:--" + "\n" + items[0].content_text);
-                m_startContent = items[0].content_text;
+                (m_otherForm as Form1).GiveToWallStreetEventDriveToAction("获取信息发生异常,尝试检查获取的html和arraylist硬编码，因为华尔街见闻的改版:" + ex.Message);
+                return;
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Form_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void listView_Content_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox_URL_TextChanged(object sender, EventArgs e)
-        {
-
+            this.timer1.Start();
         }
     }
 }

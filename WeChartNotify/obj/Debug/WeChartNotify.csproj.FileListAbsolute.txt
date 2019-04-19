@@ -83,3 +83,4 @@ C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNoti
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormSlideRecorde.resources
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormSymbolInspireMonthNotify.resources
 C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.WallStreetEventDriveForm.resources
+C:\Users\Administrator\Desktop\Cloud_Trading\WeChartNotify\obj\Debug\WeChartNotify.FormProgram.resources

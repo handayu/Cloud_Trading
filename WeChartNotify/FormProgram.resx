@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>[IntrabarOrderGeneration = false]
+
+inputs:
+
+   int OpenShares(1),
+    
+   int ISSeriesLossAndThenMovingProfitTargrt(0);
+
+
+variables:  
+
+	  AfStep( 0.02 ),
+
+	  AfLimit( 0.2 );
+ 
+variables:  
+
+	var0( 0 ), 
+
+	var1( 0 ), 
+
+	var2( 0 ), 
+
+	var3( 0 ) ;
+
+
+/////////==================================================/////////////// 
+var:
+
+   SeriesLossCount(0),
+   SeriesLossMoney(0),
+   MP(0);
+   
+MP = MarketPosition;
+
+if MP &lt;&gt; 0 and BarsSinceEntry(0) = 1  then begin   
+		   	if positionprofit(1) &lt;= 0 then begin 
+			   SeriesLossCount = SeriesLossCount + 1;
+			   SeriesLossMoney = SeriesLossMoney + positionprofit(1);
+			end;   
+
+			if positionprofit(1) &gt;= 0 then begin 
+			   SeriesLossCount = 0;
+			   SeriesLossMoney = 0;
+			end;   
+			
+			Value4 = text_new(date,time,high,numtostr(SeriesLossCount ,0));
+		       text_setsize(Value4,20);
+		       text_setcolor(Value4,Red); 
+		         
+		       if SeriesLossCount &gt;= 2 then begin 
+	                     //value2 = text_new_bn(Barnumber,high,"Has Profit:" + newline +  "-BS MovProfit Persist!" + newline + "-Break MoveProfit Persist!");
+	                     //print(date," ",time," ",symbol," ","seriesloss is above 2,please start persist mode.");		
+			       //text_setcolor(value2 ,White);
+			       //text_setsize(value2 ,8);
+			       //text_setfontname(value2 ,"Verdana");
+                     end;
+end;   
+/////////==================================================/////////////// 
+
+//if SeriesLossCount &gt;= 2 then begin 
+//   ISSeriesLossAndThenMovingProfitTargrtVar = true;
+//end;
+
+/////////==================================================/////////////// 
+
+		Value1 = ParabolicSAR( AfStep, AfLimit, var0, var1, var2, var3 ) ;  
+
+		if  close cross above var1 then   begin
+			Buy ( "B" ) OpenShares shares this bar at Close;  
+			print("SINGLE"," ",date," ",time," ",symbol," ","buy");		
+	       end;
+
+		if close cross under var1 then begin
+			Sell Short ( "S" ) OpenShares shares this bar at Close;
+			print("SINGLE"," ",date," ",time," ",symbol," ","sellshort");		
+	       end;  
+
+   
+              if EntryName(0) = "B" and marketposition = 1 and Close &lt; EntryPrice(0) then begin 
+                 Sell("BEven") all shares this bar at Close;
+                 print("SINGLE"," ",date," ",time," ",symbol," ","b-breakeven");		
+              end;
+                 
+              if EntryName(0) = "S" and marketposition = -1 and Close &gt; EntryPrice(0) then begin 
+                 BuytoCover("SEven") all shares this bar at Close;
+                 print("SINGLE"," ",date," ",time," ",symbol," ","s-breakeven");		
+              end;
+ 
+/////////==================================================/////////////// 
+/////////==================================================///////////////    
+
+var:
+
+  DoubleBuyEntryLine(0),
+  DoubleSelEntryLine(0);  
+  
+if MP = 0 and  ExitName(1) = "BEven" then begin
+
+   value10 = BarsSinceEntry(1); 
+   DoubleBuyEntryLine = Highest(High,value10)[1];
+     
+   if MarketPosition = 0  and Close &gt; DoubleBuyEntryLine then begin 
+     Buy("UpBreak") openshares shares this bar at Close; 
+     print("SINGLE"," ",date," ",time," ",symbol," ","upbreak-b-again");	
+     	  
+   end;  
+   
+end;
+
+if MP = 0 and  ExitName(1) = "SEven" then begin
+   value20 = BarsSinceEntry(1); 
+   DoubleSelEntryLine= Lowest(Low,value20)[1];
+     
+   if MarketPosition = 0  and Close &lt; DoubleSelEntryLine then begin 
+      SellShort("DownBreak")openshares shares  this bar at Close; 
+      print("SINGLE"," ",date," ",time," ",symbol," ","downbreak-s-again");		  
+   end; 
+   
+end;
+ 
+/////////==================================================/////////////// 
+/////////==================================================///////////////           
+/////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+               
+if LastBarOnChart then begin   
+		       //Notify Symbol-info
+		       //notify Param
+		       //notify trading-strategyinfo	
+		       
+		       if Text_Exist(value55) = true then text_delete(value55);
+		        	       
+		       //value55 = text_new_bn(Barnumber,high,Symbol + newline + 
+		       //"LastProfit: " + Numtostr(positionprofit(1) ,2) + newline + 
+		       //"BigPointValue: " + Numtostr(BigpointValue  ,2) + " MinMove:" + NumToStr(MinMove*(1/PriceScale),2) + " MinMove-Value(MinM*BigValue): " + NumToStr(MinMove*(1/PriceScale)*bigpointvalue,2) + newline + newline + 	
+		       //"%OpenShares%: " + NumToStr(Openshares,1) + newline + 
+		       //"%ISSeriesLossAndThenMovingProfitTargrt% " + NumToStr(ISSeriesLossAndThenMovingProfitTargrt,1) + newline + 
+                     //"%SeriesLossNum%: " + NumToStr(SeriesLossCount ,1) + newline + 
+                     //"%LossRenkoMoney%: " + NumToStr(SeriesLossMoney,2) + " &amp; LossRenkoNum:" + NumToStr(SeriesLossmoney/(absvalue(Open[1]-Close[1])*Bigpointvalue),2) + NewLine + NewLine+
+                     //"Persist Strategy: " + NewLine + 
+                     //"When Loss Two-Three Nums,Then Go into Persist Mode to Persist DrawBack!");
+                                          		       		       
+		       text_setcolor(value55,Green);
+		       text_setsize(value55,10);
+		       text_setfontname(value55,"Verdana");
+end;
+  
+
+/////////==================================================/////////////// 
+/////////==================================================///////////////           
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////   
+Inputs:
+       MaxProfitRenko(3),
+       DrawBackRenko(1);
+
+var:
+       intrabarpersist  WinMax(0),
+	intrabarpersist  MaxProfit(0),
+	intrabarpersist  WinNow(0);
+
+var:
+ 
+   varRenko(0);
+
+varRenko = AbsValue(Open[1] - Close[1]);	
+
+if ISSeriesLossAndThenMovingProfitTargrt = 1 then begin 
+	
+	if  marketposition&lt;&gt;0  then begin 
+		if marketposition = 1 then begin 
+			WinMax=( close- entryprice(0) )/ varRenko ;
+	              if(WinMax&gt;MaxProfit) then MaxProfit=WinMax;
+	              if(MaxProfit&lt;&gt;0) then WinNow= MaxProfit - WinMax;
+	       end;
+
+	       if ( Marketposition = 1  and MaxProfit &gt;= MaxProfitRenko and WinNow &gt;= DrawBackRenko and openpositionprofit &gt; 0 ) then begin 
+		      Sell ("SDrawDown_Out")all shares  this bar at Close;
+		      print("SINGLE"," ",date," ",time," ",symbol," ","b-drawdownout");		  
+		      WinMax = 0;
+		      MaxProfit = 0;
+		      WinNow = 0;     
+	       end;   
+	end;     
+      
+	if  marketposition&lt;&gt;0  then begin 
+		if marketposition = -1 then begin 
+			WinMax=( EntryPrice(0) - Close )/ varRenko ;
+	              if(WinMax &gt; MaxProfit) then MaxProfit = WinMax;
+	              if(MaxProfit&lt;&gt; 0) then WinNow = MaxProfit-WinMax;
+	       end;
+
+	       if ( Marketposition = -1  and MaxProfit &gt;= MaxProfitRenko and WinNow &gt;= DrawBackRenko and openpositionprofit &gt; 0 ) then begin 
+		      BuytoCover ("BDrawDown_Out")all shares this bar at Close;
+		      print("SINGLE"," ",date," ",time," ",symbol," ","s-drawdownout");		  
+		      WinMax = 0;
+		      MaxProfit = 0;
+		      WinNow = 0;
+	       end;
+	end;
+end;
+//////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////   
+
+
+</value>
+  </data>
+  <data name="richTextBox2.Text" xml:space="preserve">
+    <value>variables:  
+
+	  Double AfStep( 0.02 ), 
+
+	  Double AfLimit( 0.2 ) ;
+ 
+variables:  
+
+	var10( 0 ),      
+
+	var11( 0 ), 
+
+	var12( 0 ), 
+
+	var13( 0 ) ;  
+
+/////////==================================================/////////////// 
+variables:
+
+       Int SeriesLossRecord(0),
+       Double OpenBPrice(0),
+       Double OpenSPrice(0),
+       Double LastProfit(0);
+ 
+ var:
+  MP(0);
+  
+ MP = marketposition;  
+   
+ Value2 = ParabolicSAR( AfStep, AfLimit, var10, var11, var12, var13 ) ;  
+  
+	if close Cross Above var11 then  begin
+		OpenBPrice= Close;
+		LastProfit = OpenSPrice - OpenBPrice;
+		if LastProfit &lt; 0 then begin 
+		   SeriesLossRecord = SeriesLossRecord + 1;
+		   Value1 = text_new(date,time,high,numtostr(SeriesLossRecord,0));
+		   text_setsize(Value1,20);
+		   text_setcolor(Value1,Red);
+		   print("NOTIFY","-",date,"-",time,"-",symbol,"-",SeriesLossRecord);		  
+		end
+		else begin 
+		   SeriesLossRecord = 0;
+		   Value2 = text_new(date,time,high,numtostr(SeriesLossRecord,0));
+		   text_setsize(Value2,20);
+		   text_setcolor(Value2,Red);
+		   print("NOTIFY","-",date,"-",time,"-",symbol,"-",SeriesLossRecord);		  
+	       end;
+	end;
+	 
+	if  close Cross Under var11 then begin 
+	       OpenSPrice= Close;	
+	       LastProfit = OpenSPrice- OpenBPrice;
+	       if LastProfit &lt; 0 then begin 
+	          SeriesLossRecord = SeriesLossRecord + 1;
+	          Value3 = text_new(date,time,high,numtostr(SeriesLossRecord,0));
+		   text_setsize(Value3,20);
+		   text_setcolor(Value3,Red);
+		   print("NOTIFY","-",date,"-",time,"-",symbol,"-",SeriesLossRecord);		  
+
+	       end
+	       else begin  
+	          SeriesLossRecord = 0;
+	          Value4 = text_new(date,time,high,numtostr(SeriesLossRecord,0));
+		   text_setsize(Value4,20);
+		   text_setcolor(Value4,Red);
+		   print("NOTIFY","-",date,"-",time,"-",symbol,"-",SeriesLossRecord);		  
+	       end; 
+	end;		    	               
+     
+          
+
+	         
+</value>
+  </data>
+</root>

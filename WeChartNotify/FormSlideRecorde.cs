@@ -14,8 +14,32 @@ namespace WeChartNotify
     public partial class FormSlideRecorde : Form
     {
 
+        private BindingList<NotifyInfo> m_notifyBindList = new BindingList<NotifyInfo>();
+
         private MCDataLooper m_looper = null;
         private Form m_otherForm = null;
+
+        public class NotifyInfo
+        {
+            public string Time
+            {
+                set;
+                get;
+            }
+
+            public string Ins
+            {
+                set;
+                get;
+            }
+
+
+            public string SeriesLoss
+            {
+                set;
+                get;
+            }
+        }
 
         public FormSlideRecorde()
         {
@@ -27,6 +51,10 @@ namespace WeChartNotify
             InitializeComponent();
 
             m_otherForm = f;
+
+            this.timer_NotifySeriesLoss.Start();
+
+            this.dataGridView1.DataSource = this.m_notifyBindList;
         }
 
         private void button_SendNullStr_Click(object sender, EventArgs e)
@@ -43,17 +71,51 @@ namespace WeChartNotify
 
         private void button_GetOutPutContent_Click(object sender, EventArgs e)
         {
-            IntPtr handle = (IntPtr)Convert.ToInt32(this.textBox_OutputHandle.Text, 16);
-            McOutPutWndHooker hooker = new McOutPutWndHooker(handle);
-            string result = hooker.SendMessageToHoldOutPutMessage();
-
-            if (m_looper == null)
+            try
             {
-                m_looper = new MCDataLooper(handle);
+                IntPtr handle = (IntPtr)Convert.ToInt32(this.textBox_OutputHandle.Text, 16);
+                McOutPutWndHooker hooker = new McOutPutWndHooker(handle);
+                string result = hooker.SendMessageToHoldOutPutMessage();
+
+                if (m_looper == null)
+                {
+                    m_looper = new MCDataLooper(handle);
+                }
+
+                this.richTextBox_TradeInfo.Clear();
+                m_notifyBindList.Clear();
+
+                //转换成List然后对于收到的Print进行分类
+                List<string> strInfoList = result.Split(new char[] { '\r', '\n' }).ToList();
+
+                List<string> newStrinfoList = new List<string>();
+
+                foreach (string str in strInfoList)
+                {
+                    if (str != "")
+                    {
+                        newStrinfoList.Add(str);
+                    }
+                }
+
+                foreach (string strInfo in newStrinfoList)
+                {
+                    if (strInfo.Contains("NOTIFY"))
+                    {
+                        NotifyAppendTextRich(strInfo);
+                    }
+                    else
+                    {
+                        SingleAppendTextRich(strInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("获取内容分类或者超出获取的索引范围，检查...");
+                return;
             }
 
-            this.richTextBox1.Clear();
-            this.richTextBox1.AppendText("\n" + result);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -77,26 +139,112 @@ namespace WeChartNotify
             this.button_Stop.ForeColor = Color.Aqua;
         }
 
-        private void AppendTextRich(string data)
+        private void SingleAppendTextRich(string data)
         {
-            if(this.InvokeRequired)
+            if (this.InvokeRequired)
             {
-                this.BeginInvoke(new Action<string>(AppendTextRich),data);
+                this.BeginInvoke(new Action<string>(SingleAppendTextRich), data);
             }
 
-            this.richTextBox1.AppendText("\n" + data);
+            this.richTextBox_TradeInfo.AppendText("\n" + data);
+        }
+
+        private void NotifyAppendTextRich(string data)
+        {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new Action<string>(NotifyAppendTextRich), data);
+            }
+
+            //肢解
+            List<string> strList = data.Split('-').ToList();
+            foreach (string s in strList)
+            {
+                s.Trim();
+            }
+
+            NotifyInfo info = new NotifyInfo()
+            {
+                Time = strList[1] + "-" + strList[2],
+                Ins = strList[3],
+                SeriesLoss = strList[4]
+            };
+
+            //找之前datagrid是否存在，如果不存在，直接添加，如果存在，删除，更新
+            NotifyInfo tp = null;
+            foreach (NotifyInfo nf in m_notifyBindList)
+            {
+                if (nf.Ins.Trim().CompareTo(info.Ins.Trim()) == 0)
+                {
+                    tp = nf;
+                }
+            }
+
+            if (tp == null)
+            {
+                m_notifyBindList.Add(info);
+            }
+            else
+            {
+                m_notifyBindList.Remove(tp);
+                m_notifyBindList.Add(info);
+            }
         }
 
         private void TimerEvent_MCData(object sender, EventArgs e)
         {
-            if (m_looper == null) return;
-            string strMc = m_looper.GetMCData();
-            if (strMc == "") return;
-            //添加到appendBox，并一起发送到QQ
-            AppendTextRich(strMc);
+            try
+            {
+                if (m_looper == null) return;
+                string strMc = m_looper.GetMCData();
+                if (strMc == "") return;
 
-            //发送;
-            (m_otherForm as Form1).GiveToMCOutPutToAction(strMc);
+                //转换成List然后对于收到的Print进行分类
+                List<string> strInfoList = strMc.Split(new char[] { '\r', '\n' }).ToList();
+
+                List<string> newStrinfoList = new List<string>();
+
+                foreach (string str in strInfoList)
+                {
+                    if (str != "")
+                    {
+                        newStrinfoList.Add(str);
+                    }
+                }
+
+                foreach (string strInfo in newStrinfoList)
+                {
+                    if (strInfo.Contains("NOTIFY"))
+                    {
+                        NotifyAppendTextRich(strInfo);
+                        SendGridLossSeries();
+                    }
+                    else
+                    {
+                        SingleAppendTextRich(strInfo);
+                        //发送;
+                        (m_otherForm as Form1).GiveToMCOutPutToAction(strInfo);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+        }
+
+        private void SendGridLossSeries()
+        {
+            if (m_notifyBindList == null || m_notifyBindList.Count <= 0) return;
+            string allStr = "";
+            foreach (NotifyInfo f in m_notifyBindList)
+            {
+                string rowInfo = f.Ins + "-" + f.Time + "-" + f.SeriesLoss;
+                allStr = allStr + rowInfo + "\n";
+            }
+
+            (m_otherForm as Form1).GiveToMCOutPutToAction(allStr);
         }
 
         private void Form_Load(object sender, EventArgs e)
@@ -111,6 +259,48 @@ namespace WeChartNotify
             string path = System.Windows.Forms.Application.StartupPath + "\\config.ini";
             IniOperationClass c = new IniOperationClass(path);
             c.IniWriteValue("MCHandle", "Handle", this.textBox_OutputHandle.Text);
+        }
+
+        private void button_Notify_Click(object sender, EventArgs e)
+        {
+            FormProgram p = new FormProgram();
+            p.ShowDialog();
+        }
+
+        //闪烁监控改变颜色
+        private bool IsChanged = false;
+        private void timer_NotifySeriesLossEvent(object sender, EventArgs e)
+        {
+            DataGridViewRowCollection rows = this.dataGridView1.Rows;
+            foreach (DataGridViewRow r in rows)
+            {
+                NotifyInfo info = r.DataBoundItem as NotifyInfo;
+                if (info == null || info.SeriesLoss == "") return;
+
+                double lossnum = 0.00;
+                double.TryParse(info.SeriesLoss.Trim(), out lossnum);
+
+                double notifyLossNum = 0.00;
+                double.TryParse(this.textBox_SeriesLossNotify.Text, out notifyLossNum);
+
+                //如果亏损次数小于设定的监控次数，默认都是白色底，然后直接返回，如果大于，再更改
+                if (lossnum < notifyLossNum)
+                {
+                    r.DefaultCellStyle.BackColor = Color.White;
+                    return;
+                }
+
+                if (!IsChanged)
+                {
+                    r.DefaultCellStyle.BackColor = Color.Red;
+                    IsChanged = true;
+                }
+                else
+                {
+                    r.DefaultCellStyle.BackColor = Color.White;
+                    IsChanged = false;
+                }
+            }
         }
     }
 }

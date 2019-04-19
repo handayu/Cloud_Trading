@@ -568,43 +568,43 @@
             // ToolStripMenuItem_HoldScreenData
             // 
             this.ToolStripMenuItem_HoldScreenData.Name = "ToolStripMenuItem_HoldScreenData";
-            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(277, 22);
+            this.ToolStripMenuItem_HoldScreenData.Size = new System.Drawing.Size(387, 22);
             this.ToolStripMenuItem_HoldScreenData.Text = "取词交互-取词";
             this.ToolStripMenuItem_HoldScreenData.Click += new System.EventHandler(this.ToolStripMenuItem_HoldScreenData_Click);
             // 
             // ToolStripMenuItem_ScreenSeen
             // 
             this.ToolStripMenuItem_ScreenSeen.Name = "ToolStripMenuItem_ScreenSeen";
-            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(277, 22);
+            this.ToolStripMenuItem_ScreenSeen.Size = new System.Drawing.Size(387, 22);
             this.ToolStripMenuItem_ScreenSeen.Text = "截图-图形识别";
             this.ToolStripMenuItem_ScreenSeen.Click += new System.EventHandler(this.ToolStripMenuItem_ScreenSeen_Click);
             // 
             // ToolStripMenuItem_XiangSuToStr
             // 
             this.ToolStripMenuItem_XiangSuToStr.Name = "ToolStripMenuItem_XiangSuToStr";
-            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(277, 22);
+            this.ToolStripMenuItem_XiangSuToStr.Size = new System.Drawing.Size(387, 22);
             this.ToolStripMenuItem_XiangSuToStr.Text = "像素提取-字符识别";
             this.ToolStripMenuItem_XiangSuToStr.Click += new System.EventHandler(this.ToolStripMenuItem_XiangSuToStr_Click);
             // 
             // ToolStripMenuIteｍ_pirexHolder
             // 
             this.ToolStripMenuIteｍ_pirexHolder.Name = "ToolStripMenuIteｍ_pirexHolder";
-            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(277, 22);
+            this.ToolStripMenuIteｍ_pirexHolder.Size = new System.Drawing.Size(387, 22);
             this.ToolStripMenuIteｍ_pirexHolder.Text = "像素取值";
             this.ToolStripMenuIteｍ_pirexHolder.Click += new System.EventHandler(this.ToolStripMenuIteｍ_pirexHolder_Click);
             // 
             // mCCrashToolStripMenuItem
             // 
             this.mCCrashToolStripMenuItem.Name = "mCCrashToolStripMenuItem";
-            this.mCCrashToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
+            this.mCCrashToolStripMenuItem.Size = new System.Drawing.Size(387, 22);
             this.mCCrashToolStripMenuItem.Text = "服务器语音交互观察实时情况";
             this.mCCrashToolStripMenuItem.Click += new System.EventHandler(this.mCCrashToolStripMenuItem_Click);
             // 
             // mCOutPutHookerToolStripMenuItem
             // 
             this.mCOutPutHookerToolStripMenuItem.Name = "mCOutPutHookerToolStripMenuItem";
-            this.mCOutPutHookerToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
-            this.mCOutPutHookerToolStripMenuItem.Text = "MC-输出窗口抓捕器(追踪滑点等数据)";
+            this.mCOutPutHookerToolStripMenuItem.Size = new System.Drawing.Size(387, 22);
+            this.mCOutPutHookerToolStripMenuItem.Text = "MC-输出窗口抓捕器(获取Print交易记录&监控所有品种动向)";
             this.mCOutPutHookerToolStripMenuItem.Click += new System.EventHandler(this.mCOutPutHookerToolStripMenuItem_Click);
             // 
             // 任务管理器ToolStripMenuItem

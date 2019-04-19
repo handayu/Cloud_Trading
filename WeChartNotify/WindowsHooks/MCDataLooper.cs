@@ -41,7 +41,6 @@ namespace WeChartNotify
             if (str == "" || str == null) return "";
             //2.清空输出窗口
             SendMessage(m_intPtr, WM_SETTEXT, IntPtr.Zero, "");
-            //3.发布收到数据事件
             return str;
         }
 
