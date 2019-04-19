@@ -224,12 +224,13 @@ namespace WeChartNotify
                     if (strInfo.Contains("NOTIFY"))
                     {
                         NotifyAppendTextRich(strInfo);
+                        //有连续亏损信息提示----发送文字+截图提示，不要语音，因为很频繁
                         SendGridLossSeries();
                     }
                     else
                     {
                         SingleAppendTextRich(strInfo);
-                        //发送;
+                        //有交易信息发送-------发送文字+语音提示的;
                         (m_otherForm as Form1).GiveToMCOutPutToAction(strInfo);
                     }
                 }
@@ -251,7 +252,7 @@ namespace WeChartNotify
                 allStr = allStr + rowInfo + "\n";
             }
 
-            (m_otherForm as Form1).GiveToMCOutPutToAction(allStr);
+            (m_otherForm as Form1).GiveToMCOutPutSeriesLossToAction(allStr);
         }
 
         private void Form_Load(object sender, EventArgs e)
@@ -305,6 +306,25 @@ namespace WeChartNotify
                     r.DefaultCellStyle.BackColor = Color.Red;
                 }
             }
+        }
+
+        private bool m_IsLook = false;
+        private void ToolStripMenuItem_VisualOrNoEvent(object sender, EventArgs e)
+        {
+            if(m_IsLook == false)
+            {
+                this.panel2.Visible = false;
+                this.richTextBox_TradeInfo.Visible = false;
+                this.dataGridView1.Dock = DockStyle.Fill;
+                m_IsLook = true;
+            }
+            else
+            {
+                this.panel2.Visible = true;
+                this.richTextBox_TradeInfo.Visible = true;
+                this.dataGridView1.Dock = DockStyle.Top;
+                m_IsLook = false;
+            }        
         }
     }
 }
