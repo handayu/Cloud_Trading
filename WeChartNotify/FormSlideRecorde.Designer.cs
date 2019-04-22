@@ -49,6 +49,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBox_Tradeinfo = new System.Windows.Forms.CheckBox();
+            this.checkBox_Notify = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -150,6 +152,8 @@
             // panel2
             // 
             this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.checkBox_Notify);
+            this.panel2.Controls.Add(this.checkBox_Tradeinfo);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.textBox_SeriesLossNotify);
             this.panel2.Controls.Add(this.button_Stop);
@@ -245,6 +249,26 @@
             this.Column3.Name = "Column3";
             this.Column3.Width = 180;
             // 
+            // checkBox_Tradeinfo
+            // 
+            this.checkBox_Tradeinfo.AutoSize = true;
+            this.checkBox_Tradeinfo.Location = new System.Drawing.Point(129, 84);
+            this.checkBox_Tradeinfo.Name = "checkBox_Tradeinfo";
+            this.checkBox_Tradeinfo.Size = new System.Drawing.Size(96, 16);
+            this.checkBox_Tradeinfo.TabIndex = 17;
+            this.checkBox_Tradeinfo.Text = "交易记录发送";
+            this.checkBox_Tradeinfo.UseVisualStyleBackColor = true;
+            // 
+            // checkBox_Notify
+            // 
+            this.checkBox_Notify.AutoSize = true;
+            this.checkBox_Notify.Location = new System.Drawing.Point(232, 83);
+            this.checkBox_Notify.Name = "checkBox_Notify";
+            this.checkBox_Notify.Size = new System.Drawing.Size(96, 16);
+            this.checkBox_Notify.TabIndex = 18;
+            this.checkBox_Notify.Text = "品种监控发送";
+            this.checkBox_Notify.UseVisualStyleBackColor = true;
+            // 
             // FormSlideRecorde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -287,5 +311,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.CheckBox checkBox_Tradeinfo;
+        private System.Windows.Forms.CheckBox checkBox_Notify;
     }
 }

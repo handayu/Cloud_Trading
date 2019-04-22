@@ -225,13 +225,13 @@ namespace WeChartNotify
                     {
                         NotifyAppendTextRich(strInfo);
                         //有连续亏损信息提示----发送文字+截图提示，不要语音，因为很频繁
-                        SendGridLossSeries();
+                        if(this.checkBox_Notify.Checked) SendGridLossSeries();
                     }
                     else
                     {
                         SingleAppendTextRich(strInfo);
                         //有交易信息发送-------发送文字+语音提示的;
-                        (m_otherForm as Form1).GiveToMCOutPutToAction(strInfo);
+                        if(this.checkBox_Tradeinfo.Checked) (m_otherForm as Form1).GiveToMCOutPutToAction(strInfo);
                     }
                 }
             }
